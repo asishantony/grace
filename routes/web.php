@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ClientHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\LanguageController;
 
 // Page Route
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
-Route::get('/', [PageController::class, 'blankPage']);
+Route::get('/', [ClientHomeController::class, 'home'])->name('home');
 
 Route::get('/page-blank', [PageController::class, 'blankPage']);
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);

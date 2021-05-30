@@ -34,5 +34,7 @@
     "/json/horizontalMenu.json": "/json/horizontalMenu.json",
     "/json/starter-kit-list.json": "/json/starter-kit-list.json",
     "/json/verticalMenu.json": "/json/verticalMenu.json",
+    "/css/client/style.css": "/css/client/style.css",
+    "/js/client/main.js": "/js/client/main.js",
     "/js/vendors.min.js": "/js/vendors.min.js"
 }

@@ -1,6 +1,6 @@
-const mix = require('laravel-mix');
-const exec = require('child_process').exec;
-require('dotenv').config();
+const mix = require("laravel-mix");
+const exec = require("child_process").exec;
+require("dotenv").config();
 
 /*
  |--------------------------------------------------------------------------
@@ -13,8 +13,8 @@ require('dotenv').config();
  |
  */
 
-const glob = require('glob');
-const path = require('path');
+const glob = require("glob");
+const path = require("path");
 
 /*
  |--------------------------------------------------------------------------
@@ -23,33 +23,65 @@ const path = require('path');
  */
 
 function mixAssetsDir(query, cb) {
-    (glob.sync('resources/' + query) || []).forEach(f => {
-        f = f.replace(/[\\\/]+/g, '/');
-        cb(f, f.replace('resources', 'public'));
+    (glob.sync("resources/" + query) || []).forEach((f) => {
+        f = f.replace(/[\\\/]+/g, "/");
+        cb(f, f.replace("resources", "public"));
     });
 }
 
 const sassOptions = {
-    precision: 5
+    precision: 5,
 };
 
 // themes Core stylesheets
-mixAssetsDir('sass/custom/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css'), {sassOptions}));
+mixAssetsDir("sass/custom/**/!(_)*.scss", (src, dest) =>
+    mix.sass(
+        src,
+        dest
+            .replace(/(\\|\/)sass(\\|\/)/, "$1css$2")
+            .replace(/\.scss$/, ".css"),
+        { sassOptions }
+    )
+);
 
 // pages Core stylesheets
-mixAssetsDir('sass/pages/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css'), {sassOptions}));
+mixAssetsDir("sass/pages/**/!(_)*.scss", (src, dest) =>
+    mix.sass(
+        src,
+        dest
+            .replace(/(\\|\/)sass(\\|\/)/, "$1css$2")
+            .replace(/\.scss$/, ".css"),
+        { sassOptions }
+    )
+);
 
 // Themescss task
-mixAssetsDir('sass/themes/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css'), {sassOptions}));
+mixAssetsDir("sass/themes/**/!(_)*.scss", (src, dest) =>
+    mix.sass(
+        src,
+        dest
+            .replace(/(\\|\/)sass(\\|\/)/, "$1css$2")
+            .replace(/\.scss$/, ".css"),
+        { sassOptions }
+    )
+);
 
 // Core stylesheets
-mixAssetsDir('sass/layouts/**/!(_)*.scss', (src, dest) => mix.sass(src, dest.replace(/(\\|\/)sass(\\|\/)/, '$1css$2').replace(/\.scss$/, '.css'), {sassOptions}));
+mixAssetsDir("sass/layouts/**/!(_)*.scss", (src, dest) =>
+    mix.sass(
+        src,
+        dest
+            .replace(/(\\|\/)sass(\\|\/)/, "$1css$2")
+            .replace(/\.scss$/, ".css"),
+        { sassOptions }
+    )
+);
 
 // script js
-mixAssetsDir('js/scripts/**/*.js', (src, dest) => mix.scripts(src, dest));
+mixAssetsDir("js/scripts/**/*.js", (src, dest) => mix.scripts(src, dest));
 
 // custom script js
-mixAssetsDir('js/custom/**/*.js', (src, dest) => mix.scripts(src, dest));
+mixAssetsDir("js/custom/**/*.js", (src, dest) => mix.scripts(src, dest));
 
 /*
  |--------------------------------------------------------------------------
@@ -57,25 +89,26 @@ mixAssetsDir('js/custom/**/*.js', (src, dest) => mix.scripts(src, dest));
  |--------------------------------------------------------------------------
  */
 
-mix.copyDirectory('resources/images', 'public/images');
-mix.copyDirectory('resources/vendors', 'public/vendors');
-mix.copyDirectory('resources/fonts', 'public/fonts');
-mix.copyDirectory('resources/json', 'public/json');
+mix.copyDirectory("resources/images", "public/images");
+mix.copyDirectory("resources/vendors", "public/vendors");
+mix.copyDirectory("resources/fonts", "public/fonts");
+mix.copyDirectory("resources/json", "public/json");
+mix.copyDirectory("resources/css/client", "public/css/client");
+mix.copyDirectory("resources/js/client", "public/js/client");
 
+mix.js("resources/js/materialize.js", "public/js")
+    .js("resources/js/plugins.js", "public/js")
+    .js("resources/js/search.js", "public/js/")
+    .sass("resources/sass/style-rtl.scss", "public/css")
+    .sass("resources/sass/laravel-custom.scss", "public/css");
 
-
-mix.js('resources/js/materialize.js', 'public/js')
-    .js('resources/js/plugins.js', 'public/js')
-    .js('resources/js/search.js', 'public/js/')
-    .sass('resources/sass/style-rtl.scss', 'public/css')
-    .sass('resources/sass/laravel-custom.scss', 'public/css');
-
-
-mix.copy('resources/js/vendors.min.js', 'public/js/vendors.min.js');
+mix.copy("resources/js/vendors.min.js", "public/js/vendors.min.js");
 
 mix.then(() => {
     if (process.env.MIX_CONTENT_DIRECTION === "rtl") {
-        let command = `node ${path.resolve('node_modules/rtlcss/bin/rtlcss.js')} -d -e ".css" ./public/css/ ./public/css/`;
+        let command = `node ${path.resolve(
+            "node_modules/rtlcss/bin/rtlcss.js"
+        )} -d -e ".css" ./public/css/ ./public/css/`;
         exec(command, function (err, stdout, stderr) {
             if (err !== null) {
                 console.log(err);
@@ -94,4 +127,3 @@ mix.then(() => {
 //     });
 //     mix.setResourceRoot("/materialize-material-design-admin-template/laravel/demo-1/");
 // }
-
