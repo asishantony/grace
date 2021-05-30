@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ClientHomeController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,13 @@ use App\Http\Controllers\ClientHomeController;
 Route::get('/', [ClientHomeController::class, 'home'])->name('home');
 Route::get('/page/{slug}',[ClientHomeController::class,'view']);
 
-Route::get('/page-blank', [PageController::class, 'blankPage']);
+Route::get('/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 
 // locale route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
-
+Route::post('/logout', [LogoutController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('logout');
 Auth::routes(['verify' => false]);
+
