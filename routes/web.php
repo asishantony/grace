@@ -19,6 +19,7 @@ use App\Http\Controllers\ClientHomeController;
 // Page Route
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route::get('/', [ClientHomeController::class, 'home'])->name('home');
+Route::get('/page/{slug}',[ClientHomeController::class,'view']);
 
 Route::get('/page-blank', [PageController::class, 'blankPage']);
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
@@ -26,4 +27,4 @@ Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 // locale route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => false]);

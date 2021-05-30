@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('image/favicon.png')}}" rel="icon">
-  <link href="{{asset('image/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('images/client/favicon.png')}}" rel="icon">
+  <link href="{{asset('images/client/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -37,7 +37,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="{{route('home')}}"><img src="{{asset('image/logo.png')}}" alt="logo" /></a></h1>
+      <h1 class="logo"><a href="{{route('home')}}"><img src="{{asset('images/client/logo.png')}}" alt="logo" /></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="{{asset('image/logo.png')}}" alt="" class="img-fluid"></a>-->
 
@@ -78,7 +78,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3><img src="{{asset('image/logo.png')}}"/></h3>
+              <h3><img src="{{asset('images/client/logo.png')}}"/></h3>
                             <p>
                               Valayal ,Keezhallur - 670612<br>
 
