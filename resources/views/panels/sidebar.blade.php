@@ -27,7 +27,7 @@
           @if(!empty ($configData['templateTitle']) && isset($configData['templateTitle']))
           {{$configData['templateTitle']}}
           @else
-          Materialize
+          Grace
           @endif
         </span>
       </a>
