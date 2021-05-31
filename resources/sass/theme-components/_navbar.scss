@@ -149,6 +149,11 @@
          }
       }
    }
+   .profile-button{
+      span.avatar-status{
+         line-height: 43px;
+      }
+   }
    #profile-dropdown{
       width: 160px;
       li{
@@ -328,6 +333,7 @@ nav.display-none.search-sm{
       }
    }
 }
+
 //Navbar on small screen
 @media #{$small-and-down} {
    .navbar {
@@ -340,8 +346,13 @@ nav.display-none.search-sm{
             padding: 0 13px;
          }
       }
+      .profile-button{
+         span.avatar-status{
+            line-height: 39px ;
+         }
+      }
    }
-   
+      
    .notification-button {
       i {
          position: relative;

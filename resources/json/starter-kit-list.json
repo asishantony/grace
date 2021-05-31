@@ -1,16 +1,16 @@
 {
-  "listItems": [
-    {
-      "url": "page-blank",
-      "name": "Blank Page",
-      "icon": "pages",
-      "category": "Blank Page"
-    },
-    {
-      "url": "page-collapse",
-      "name": "Page Collapse",
-      "icon": "pages",
-      "category": "Collapse Page"
-    }
-  ]
+    "listItems": [
+        {
+            "url": "/admin/news",
+            "name": "News & Events",
+            "icon": "pages",
+            "category": "Administration"
+        },
+        {
+            "url": "page-collapse",
+            "name": "Page Collapse",
+            "icon": "pages",
+            "category": "Collapse Page"
+        }
+    ]
 }

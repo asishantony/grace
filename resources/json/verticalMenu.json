@@ -12,7 +12,8 @@
                     "url": "/admin/news",
                     "name": "News & Events",
                     "i18n": "News & Events",
-                    "slug": "news-events"
+                    "slug": "news-events",
+                    "icon": "domain"
                 },
                 {
                     "url": "admin/site_settings",

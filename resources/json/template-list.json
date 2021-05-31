@@ -1,0 +1,10 @@
+{
+    "listItems": [
+        {
+            "url": "/admin/news",
+            "name": "News and Events",
+            "icon": "settings_ethernet",
+            "category": "Administration"
+        }
+    ]
+}
