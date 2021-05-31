@@ -5,6 +5,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ClientHomeController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\NewsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,7 @@ use App\Http\Controllers\Auth\LogoutController;
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route::get('/', [ClientHomeController::class, 'home'])->name('home');
 Route::get('/page/{slug}',[ClientHomeController::class,'view']);
-Route::get('/admin/news/',function(){
-    return view('pages/news');
-});
+Route::get('/admin/news/',[NewsController::class,'index']);
 Route::get('/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 

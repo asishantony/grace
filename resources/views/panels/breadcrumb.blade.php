@@ -18,7 +18,7 @@
         </ol>
         @endif
       </div>
-      <div class="col s2 m6 l6">
+      {{-- <div class="col s2 m6 l6">
         <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!"
           data-target="dropdown1">
           <i class="material-icons hide-on-med-and-up">settings</i>
@@ -33,7 +33,7 @@
           <li class="divider" tabindex="-1"></li>
           <li tabindex="0"><a class="grey-text text-darken-2" href="{{asset('user-login')}}">Logout</a></li>
         </ul>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>
@@ -57,7 +57,7 @@
         </ol>
         @endif
       </div>
-      <div class="col s2 m6 l6"><a
+      {{-- <div class="col s2 m6 l6"><a
           class="btn btn-floating dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!"
           data-target="dropdown1"><i class="material-icons">expand_more </i><i
             class="material-icons right">arrow_drop_down</i></a>
@@ -69,7 +69,7 @@
           <li class="divider" tabindex="-1"></li>
           <li tabindex="0"><a class="grey-text text-darken-2" href="{{asset('user-login')}}">Logout</a></li>
         </ul>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>

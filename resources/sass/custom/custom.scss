@@ -1,5 +1,5 @@
 /*================================================================================
-	Item Name: Materialize - Material Design Admin Template
+	Item Name: Grace International School
 	Version: 5.0
 	Author: PIXINVENT
 	Author URL: https://themeforest.net/user/pixinvent/portfolio
