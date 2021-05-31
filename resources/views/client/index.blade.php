@@ -79,7 +79,7 @@
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
-              <p class="animate__animated animate__fadeInUp">An initiative ofthe Roman Catholic Diocese of Kannur</p>
+              <p class="animate__animated animate__fadeInUp">An initiative of the Roman Catholic Diocese of Kannur</p>
             </div>
           </div>
         </div>
