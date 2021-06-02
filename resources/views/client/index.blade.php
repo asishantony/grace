@@ -51,7 +51,7 @@
               <li><a href="/page/responsibility">Social Responsibility</a></li>
               <li><a href="/page/accreditation">Accreditation</a></li>
               <li><a href="/page/chairman_message">Chairman's Message</a></li>
-              <li><a href="/page/achievement">Achievements</a></li>
+              <li><a href="/page/achievements">Achievements</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#services">Facilities</a></li>

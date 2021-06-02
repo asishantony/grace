@@ -15,7 +15,13 @@ class CreateNewsEventsTable extends Migration
     {
         Schema::create('news_events', function (Blueprint $table) {
             $table->id();
-            $table->
+            $table->string('heading');
+            $table->text('content');
+            $table->text('image')->nullable();
+            $table->date('due_date')->nullable();
+            $table->integer('priority');
+            $table->boolean('featured')->default(true);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

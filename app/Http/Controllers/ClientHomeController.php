@@ -10,7 +10,7 @@ class ClientHomeController extends Controller
     public function view($page)
     {
         // dd($page);
-        $titles = array('about'=>'About Us','vision'=>'Our Vision','mission'=>'Our Mission','achievement'=>'Achievements',
+        $titles = array('about'=>'About Us','vision'=>'Our Vision','mission'=>'Our Mission','achievements'=>'Achievements',
                         'rules'=>'Rules and Regulations','responsibility'=>'Social Responsibility',
                         'accreditation'=>'Accreditation',"chairman_message"=>"Chairman's Message");
         $content = SchoolDetails::get($page)->first();
@@ -20,6 +20,7 @@ class ClientHomeController extends Controller
     public function home()
     {
         $data = SchoolDetails::get()->first()->toArray();
+        // dd($data);
        
         return view('client.index',$data);
     }
