@@ -459,10 +459,10 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="{{asset('images/client/team/team')}}-1.jpg" class="img-fluid" alt="">
+              <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
+                  <h4>Rev.Dr. Alex Vadakkumthala</h4>
                   <span>Director</span>
                 </div>
                 <div class="social">
@@ -477,10 +477,10 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
             <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="{{asset('images/client/team/team')}}-2.jpg" class="img-fluid" alt="">
+              <img src="{{asset('images/client/team/ruth.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
+                  <h4>Sr. Ruth</h4>
                   <span>Principal</span>
                 </div>
                 <div class="social">
@@ -495,10 +495,10 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="{{asset('images/client/team/team')}}-3.jpg" class="img-fluid" alt="">
+              <img src="{{asset('images/client/team/clarance.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>William Anderson</h4>
+                  <h4>Fr. Clarence Paliath</h4>
                   <span>Lecturer - English</span>
                 </div>
                 <div class="social">
@@ -513,10 +513,65 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
             <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/team')}}-4.jpg" class="img-fluid" alt="">
+              <img src="{{asset('images/client/team/fr_devassy.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
+                  <h4>Fr.Devassy Eerathara</h4>
+                  <span>Lecturer - Maths</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/george.jpg')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. George Painadathan</h4>
+                  <span>Lecturer - Maths</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/joe_bosco.png')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. Joe Bosco</h4>
+                  <span>Lecturer - Maths</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/joseph_d.png')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. Joseph D'Cruz</h4>
                   <span>Lecturer - Maths</span>
                 </div>
                 <div class="social">
@@ -703,7 +758,7 @@
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          {{-- <div class="col-lg-2 col-md-6 footer-links">
             <h4></h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -712,9 +767,9 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          <div class="col-lg- col-md-6 footer-newsletter">
             <h4>Reach Us</h4>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1368699652567!2d75.52450951481111!3d11.895556391568164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43aa0913a4ad7%3A0x11af6eb21f713752!2sGrace%20International%20School!5e0!3m2!1sen!2sin!4v1621838755533!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
