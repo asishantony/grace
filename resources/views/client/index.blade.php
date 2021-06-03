@@ -133,7 +133,7 @@
             <img src="{{asset('images/client/about.jpg')}}" class="w-100"/>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>{{$about}} </p>
+            <p>{{\Illuminate\Support\Str::limit($about,500)}} </p>
             <a href="/page/about" class="btn-learn-more">Learn More</a>
           </div>
         </div>
@@ -159,8 +159,8 @@
           <div class="col-lg-6 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box greenlt">
               <h3><strong>OUR MISSION</strong> </h3>
-              <p class="pt-0">{{$mission}} </p>
-              <a href="#">Read more &raquo;</a>
+              <p class="pt-0">{{\Illuminate\Support\Str::limit($mission,200)}} </p>
+              <a href="{{'/page/mission'}}">Read more &raquo;</a>
             </div>
           </div>
 
@@ -463,7 +463,77 @@
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Rev.Dr. Alex Vadakkumthala</h4>
-                  <span>Director</span>
+                  <span>Patron</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/fr_devassy.png')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr.Devassy Eerathara</h4>
+                  <span>Governing Body Member</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <img src="{{asset('images/client/team/clarance.png')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. Clarence Paliath</h4>
+                  <span>Governing Body Chairman</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/george.jpg')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. George Painadathan</h4>
+                  <span>Governing Body Treasurer</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{{asset('images/client/team/joseph_d.png')}}" class="img-fluid" alt="" loading="lazy">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Fr. Joseph D'Cruz</h4>
+                  <span>Manager</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -493,60 +563,6 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="{{asset('images/client/team/clarance.png')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr. Clarence Paliath</h4>
-                  <span>Lecturer - English</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/fr_devassy.png')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr.Devassy Eerathara</h4>
-                  <span>Lecturer - Maths</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/george.jpg')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr. George Painadathan</h4>
-                  <span>Lecturer - Maths</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
             <div class="member" data-aos="zoom-in" data-aos-delay="400">
@@ -554,7 +570,7 @@
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Fr. Joe Bosco</h4>
-                  <span>Lecturer - Maths</span>
+                  <span>Associate Manager</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -565,25 +581,6 @@
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/joseph_d.png')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr. Joseph D'Cruz</h4>
-                  <span>Lecturer - Maths</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
