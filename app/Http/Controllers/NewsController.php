@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NewsEvents;
 
 class NewsController extends Controller
 {
@@ -13,14 +14,18 @@ class NewsController extends Controller
      */
     public function index()
     {
-      
+        $news_data = NewsEvents::orderBy('due_date',"desc")->get();
+        if (!$news_data) {
+            abort();
+        }
         $breadcrumbs = [
-            ['link'=>"/admin/dashboard",'name'=>"Home"],['name'=>"Adminsitration"], ['name'=>"News & Events"]
+            ['link' => "javascript:void(0)", 'name' => "Administration"], ['name'=>"News & Events"]
         ];
-        $pageConfigs = ['pageHeader' => true, 'isFabButton' => false];
+        $pageConfigs = ['pageHeader' => true];
+
         return view('/pages/news', ['pageConfigs' => $pageConfigs],[
             'breadcrumbs' => $breadcrumbs
-        ]);
+        ])->with('news_data',$news_data);
     }
 
     /**

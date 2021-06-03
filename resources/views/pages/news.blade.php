@@ -39,20 +39,18 @@
           <table id="users-list-datatable" class="table">
             <thead>
               <tr>
-                <th></th>
-                <th>id</th>
-                <th>username</th>
-                <th>name</th>
-                <th>last activity</th>
-                <th>verified</th>
-                <th>role</th>
-                <th>status</th>
-                <th>edit</th>
-                <th>view</th>
+                {{-- <th></th> --}}
+                <th>Due Date</th>
+                <th>Heading</th>
+                <th>Content</th>
+                <th>Priority</th>
+                <th>Featured</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {{-- <tr>
                 <td></td>
                 <td>300</td>
                 <td><a href="{{asset('page-users-view')}}">dean3004</a>
@@ -228,8 +226,43 @@
                 <td><span class="chip red lighten-5"><span class="red-text">Banned</span></span></td>
                 <td><a href="{{asset('page-users-edit')}}"><i class="material-icons">edit</i></a></td>
                 <td><a href="{{asset('page-users-view')}}"><i class="material-icons">remove_red_eye</i></a></td>
+              </tr> --}}
+              @if ($news_data)
+              @foreach ($news_data as $news)
+              <tr>
+                <td>{{$news->due_date}}</td>
+                <td>{{\Illuminate\Support\Str::limit($news->heading,10)}}</td>
+                <td>{{\Illuminate\Support\Str::limit($news->content,20)}}</td>
+                {{-- <td><a href="{{asset('page-users-view')}}">dean3004</a>
+                </td> --}}
+                <td>{{$news->priority}}</td>
+                <td>
+                  @if ($news->featured == "1")
+                    <span class="chip green lighten-5">
+                     <span class="green-text">Featured</span>
+                    </span>
+                  @else
+                    <span class="chip red lighten-5">
+                      <span class="red-text">Not Featured</span>
+                    </span>
+                  @endif
+                </td>
+                <td> @if ($news->status == "1")
+                  <span class="chip green lighten-5">
+                   <span class="green-text">Active</span>
+                  </span>
+                @else
+                  <span class="chip red lighten-5">
+                    <span class="red-text">Inactive</span>
+                  </span>
+                @endif</td>
+                <td>
+                  <a href="{{asset('page-users-edit')}}"><i class="material-icons">edit</i></a>
+                  <a href="{{asset('page-users-view')}}"><i class="material-icons">remove_red_eye</i></a>
+                </td>
               </tr>
-              
+              @endforeach
+              @endif
             </tbody>
           </table>
         </div>
@@ -251,7 +284,7 @@
   <div class="card quill-wrapper">
     <div class="card-content pt-0">
       <div class="card-header display-flex pb-2">
-        <h3 class="card-title">NEW NEWS</h3>
+        <h3 class="card-title">ADD NEWS</h3>
         <div class="close close-icon">
           <i class="material-icons">close</i>
         </div>
@@ -260,16 +293,15 @@
       <!-- form start -->
       <form class="edit-email-item mt-10 mb-10">
         <div class="input-field">
-          <input type="email" class="edit-email-item-title validate" id="edit-item-from" value="user@example.com"
-            disabled>
-          <label for="edit-item-from">From</label>
-        </div>
-        <div class="input-field">
+          <input type="email" class="edit-email-item-title validate" id="edit-item-from" value="user@example.com">
+          <label for="edit-item-from">Heading</label>
+          <div class="input-field">
           <input type="email" class="edit-email-item-date" id="edit-item-to">
           <label for="edit-item-to">To</label>
         </div>
+        </div>
         <div class="input-field">
-          <input type="text" class="edit-email-item-date" id="edit-item-subject">
+          <input type="text" class="datepicker" id="edit-item-subject">
           <label for="edit-item-subject">Subject</label>
         </div>
         <div class="input-field">
@@ -332,5 +364,6 @@
 {{-- page scripts --}}
 @section('page-script')
 <script src="{{asset('js/scripts/page-users.js')}}"></script>
-<script src="{{asset('js/scripts/app-email.js')}}"></script>
+{{-- <script src="{{asset('js/scripts/app-email.js')}}"></script> --}}
+<script src="{{asset('js/scripts/news.js')}}"></script>
 @endsection

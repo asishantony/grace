@@ -6,6 +6,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ClientHomeController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SiteSettingController;
 
 
 /*
@@ -24,6 +25,10 @@ use App\Http\Controllers\NewsController;
 Route::get('/', [ClientHomeController::class, 'home'])->name('home');
 Route::get('/page/{slug}',[ClientHomeController::class,'view']);
 Route::get('/admin/news/',[NewsController::class,'index']);
+Route::get('/admin/site_settings/',[SiteSettingController::class,'index']);
+Route::post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
+Route::post('/admin/site_settings/social/{id}',[SiteSettingController::class,'updateSocial']);
+Route::post('/admin/site_settings/basic/{id}',[SiteSettingController::class,'updateBasic']);
 Route::get('/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 
