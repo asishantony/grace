@@ -1,0 +1,16 @@
+{
+    "listItems": [
+        {
+            "url": "/admin/news",
+            "name": "News & Events",
+            "icon": "pages",
+            "category": "Administration"
+        },
+        {
+            "url": "page-collapse",
+            "name": "Page Collapse",
+            "icon": "pages",
+            "category": "Collapse Page"
+        }
+    ]
+}
