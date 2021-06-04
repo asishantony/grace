@@ -1,1 +1,10 @@
-#materialize-sparkline .card{overflow:hidden}#materialize-sparkline .display-flex{justify-content:space-between;flex-direction:row-reverse}
+/*
+ *  Sparkline Charts
+*/
+#materialize-sparkline .card {
+  overflow: hidden;
+}
+#materialize-sparkline .display-flex {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}

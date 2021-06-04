@@ -1,1 +1,6 @@
-.card.large .card-image+.card-content{max-height:100%}
+/*----------------------------------------
+Cards
+------------------------------------------*/
+.card.large .card-image + .card-content {
+  max-height: 100%;
+}

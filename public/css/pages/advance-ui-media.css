@@ -1,1 +1,6 @@
-#material-box img.materialboxed{width:100%}
+/*----------------------------------------
+  Advanced UI - Media
+------------------------------------------*/
+#material-box img.materialboxed {
+  width: 100%;
+}

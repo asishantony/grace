@@ -1,1 +1,8 @@
-.collection a.collection-item{display:flex;align-items:center;justify-content:space-between}
+/*----------------------------------------
+  Badges
+------------------------------------------*/
+.collection a.collection-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

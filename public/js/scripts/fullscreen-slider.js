@@ -1,1 +1,5 @@
-$(document).ready((function(){$(".slider.fullscreen").slider({full_width:!0})}));
+$(document).ready(function () {
+    $('.slider.fullscreen').slider({
+        full_width: true
+    });
+});

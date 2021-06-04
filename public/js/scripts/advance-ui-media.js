@@ -1,1 +1,9 @@
-$(document).ready((function(){$(".materialboxed").materialbox()}));
+/*
+ * Advance Ui MEdia
+ */
+
+// Material Box
+
+$(document).ready(function () {
+    $('.materialboxed').materialbox();
+});
