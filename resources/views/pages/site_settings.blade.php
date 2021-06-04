@@ -75,7 +75,7 @@
             </div>
           </div> --}}
           {{-- <div class="divider mb-1 mt-1"></div> --}}
-          <form class="formValidate" method="get" id="basic-form">
+          <form   id="basic-form">
             <div class="row">
               {{-- <div class="col s12">
                 <div class="input-field">

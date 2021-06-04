@@ -726,20 +726,16 @@
             <div class="footer-info">
               <h3><img src="{{asset('images/client/logo.png')}}"/></h3>
                             <p>
-                              Valayal ,Keezhallur - 670612<br>
-
-                              Kannur ,kerala ,india<br>
-                              
-                              5km from Kannur Airport<br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                             {{$address}}<br>
+                <strong>Phone: </strong> {{$phone1}}<br>
+                <strong>Email: </strong>{{$email}}<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                @if($twitter != null)<a href="{{$twitter}}" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>@endif
+                @if($facebook != null)<a href="{{$facebook}}" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>@endif
+                @if($instagram != null)<a href="{{$instagram}}" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>@endif
+                @if($skype != null)<a href="{{$skype}}" target="_blank" class="skype"><i class="bx bxl-skype"></i></a>@endif
+                @if($linkedin != null)<a href="{{$linkedin}}" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>@endif
               </div>
             </div>
           </div>

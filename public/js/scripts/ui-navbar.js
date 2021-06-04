@@ -1,7 +1,1 @@
-/*
-* Navbar - Sidenav
-*/
-$(function() {
-	$(".dropdown-trigger").dropdown();
-	$(".button-collapse").sidenav();
-});
+$((function(){$(".dropdown-trigger").dropdown(),$(".button-collapse").sidenav()}));

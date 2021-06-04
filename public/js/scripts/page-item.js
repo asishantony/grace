@@ -1,12 +1,1 @@
-/*
- * Masonry container for item page
- */
-$(function() {
-  var $containerBlog = $("#item-posts");
-  $containerBlog.imagesLoaded(function() {
-    $containerBlog.masonry({
-      itemSelector: ".item",
-      columnWidth: ".item-sizer",
-    });
-  });
-});
+$((function(){var e=$("#item-posts");e.imagesLoaded((function(){e.masonry({itemSelector:".item",columnWidth:".item-sizer"})}))}));
