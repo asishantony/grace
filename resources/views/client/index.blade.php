@@ -171,6 +171,7 @@
     </section><!-- End Counts Section -->
 
      <!-- ======= Testimonials Section ======= -->
+     @if(count($news) > 0)
      <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -181,24 +182,25 @@
 
         <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+            @foreach ($news as $news_item)
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="{{asset('images/client/news1.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
+                  <img src="{{$news_item->image}}" class="testimonial-img" alt="{{$news_item->heading}}">
+                  <h3>{{$news_item->heading}}</h3>
+                  <h4>{{$news_item->due_date}}</h4>
                   <p>
                     
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    {{$news_item->content}}
                    
                   </p>
                   <a href="#">Read more &raquo;</a>
                 </div>
               </div>
             </div><!-- End testimonial item -->
+            @endforeach
 
-            <div class="swiper-slide">
+            {{-- <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
                   <img src="{{asset('images/client/news2.jpg')}}" class="testimonial-img" alt="">
@@ -260,7 +262,7 @@
                   <a href="#">Read more &raquo;</a>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div><!-- End testimonial item --> --}}
 
           </div>
           <div class="swiper-pagination"></div>
@@ -268,7 +270,7 @@
 
       </div>
     </section><!-- End Testimonials Section -->
-
+    @endif
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -644,7 +646,7 @@
     </div>
     </section><!-- End Pricing Section --> --}}
 
-
+    >
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
       <div class="container" data-aos="fade-up">

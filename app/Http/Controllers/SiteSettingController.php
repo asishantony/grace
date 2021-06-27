@@ -155,7 +155,7 @@ class SiteSettingController extends Controller
                 
             }
         } catch (\Throwable $th) {
-            dd($th);
+            // dd($th);
             $return_data = array("success"=>false, "message"=>"Site Settings Updation failed"); 
         }
         return json_encode($return_data);

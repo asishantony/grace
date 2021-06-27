@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SchoolDetails;
+use App\Models\NewsEvents;
+use Carbon\Carbon;
 
 class ClientHomeController extends Controller
 {
@@ -20,9 +22,15 @@ class ClientHomeController extends Controller
     public function home()
     {
         $data = SchoolDetails::get()->first()->toArray();
-        // dd($data);
+        $news= NewsEvents::orderBy('due_date','desc')
+                            ->where('featured',1)
+                            ->where('status',1)
+                            ->where('due_date','>',Carbon::now()->format('Y-m-d'))
+                            ->get();
+        // dd($news->toArray());
+        // $news = array();
        
-        return view('client.index',$data);
+        return view('client.index',$data)->with('news',$news);
     }
     public function create()
     {
