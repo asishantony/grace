@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\NewsEvents;
 use App\Http\Requests\NewsCreateRequest;
+use File;
 
 class NewsController extends Controller
 {
@@ -72,7 +73,7 @@ class NewsController extends Controller
             $return_data = array("success"=>false, "message"=>"News Addition Failed");
         }
         return json_encode($return_data);
-       
+
     }
 
     /**
@@ -100,9 +101,9 @@ class NewsController extends Controller
             //throw $th;
             $return_data = array("success"=>false, "message"=>"Error in getting news data");
         }
-        
+
         return json_encode($return_data);
-       
+
     }
 
     /**
@@ -131,7 +132,7 @@ class NewsController extends Controller
             //throw $th;
             $return_data = array("success"=>false, "message"=>"Error in getting news data");
         }
-        
+
         return json_encode($return_data);
     }
 
@@ -158,9 +159,19 @@ class NewsController extends Controller
     {
         // dd($request->id);
         try {
+            //delelte the image related to the news
+            $news_data = NewsEvents::find($request->id);
+            $imagePath = $news_data->image;
+            if ($imagePath) {
+            //    dd($imagePath);
+               $delete = Storage::disk('public')->delete($imagePath);
+               dd($delete);
+
+            }
             $news_data = NewsEvents::destroy($request->id);
             $return_data = array("success"=>true, "message"=>"News Deleted Successfully");
         } catch (\Throwable $th) {
+            // dd($th);
             $return_data = array("success"=>false, "message"=>"News Deletion Failed");
         }
         return json_encode($return_data);
