@@ -25,7 +25,7 @@ class NewsController extends Controller
         ];
         $pageConfigs = ['pageHeader' => true];
 
-        return view('/pages/news/news', ['pageConfigs' => $pageConfigs],[
+        return view('pages.news.news', ['pageConfigs' => $pageConfigs],[
             'breadcrumbs' => $breadcrumbs
         ])->with('news_data',$news_data);
     }
