@@ -7,6 +7,8 @@ use App\Http\Controllers\ClientHomeController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\ImageController;
 
 
 /*
@@ -32,10 +34,22 @@ Route::patch('/admin/news/{id}',[NewsController::class,'update']);
 Route::post('/admin/news/delete',[NewsController::class,'destroy']);
 Route::post('/admin/news/toggle-status',[NewsController::class,'toggleStatus']);
 Route::post('/admin/news/toggle-featured',[NewsController::class,'toggleFeatured']);
+
+Route::get('/admin/album/',[AlbumController::class,'index']);
+Route::post('/admin/album/save',[AlbumController::class,'store']);
+Route::get('/admin/album/{id}',[AlbumController::class,'show']);
+Route::get('/admin/album/{id}/edit',[AlbumController::class,'edit']);
+Route::patch('/admin/album/{id}',[AlbumController::class,'update']);
+Route::post('/admin/album/delete',[AlbumController::class,'destroy']);
+Route::post('/admin/album/toggle-status',[AlbumController::class,'toggleStatus']);
+Route::post('/admin/album/toggle-featured',[AlbumController::class,'toggleFeatured']);
+
 Route::get('/admin/site_settings/',[SiteSettingController::class,'index']);
 Route::post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
 Route::post('/admin/site_settings/social/{id}',[SiteSettingController::class,'updateSocial']);
 Route::post('/admin/site_settings/basic/{id}',[SiteSettingController::class,'updateBasic']);
+
+
 Route::get('/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 

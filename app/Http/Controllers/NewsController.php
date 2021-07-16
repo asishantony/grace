@@ -145,8 +145,24 @@ class NewsController extends Controller
      */
     public function update(NewsCreateRequest $request, $id)
     {
-        //
-        dd($id, $request->due_date);
+        $news->heading = $request->heading;
+        $news->content = $request->content;
+        $news->due_date= $request->due_date;
+        $news->image = '/storage/'.$path;
+        $news->priority = NewsEvents::max('priority')+1;
+        try {
+            $news->save();
+            if ($news) {
+                $return_data = array("success"=>true, "message"=>"News Added Successfully");
+
+            }else{
+                $return_data = array("success"=>false, "message"=>"News Addition Failed");
+
+            }
+        } catch (\Throwable $th) {
+            $return_data = array("success"=>false, "message"=>"News Addition Failed");
+        }
+        return json_encode($return_data);
     }
 
     /**

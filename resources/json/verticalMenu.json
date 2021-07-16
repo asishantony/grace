@@ -9,10 +9,17 @@
             "icon": "domain",
             "submenu": [
                 {
-                    "url": "/admin/news",
+                    "url": "admin/news",
                     "name": "News & Events",
                     "i18n": "News & Events",
                     "slug": "news-events",
+                    "icon": "domain"
+                },
+                {
+                    "url": "admin/rules",
+                    "name": "Rules & Regulations",
+                    "i18n": "Rules & Regulations",
+                    "slug": "rules-regulations",
                     "icon": "domain"
                 },
                 {
@@ -20,6 +27,30 @@
                     "name": "Site Settings",
                     "i18n": "Site Settings",
                     "slug": "site-settings"
+                }
+            ]
+        },
+        {
+            "url": "javascript:void(0)",
+            "name": "Gallery",
+            "i18n": "Gallery",
+            "class": "collapsible-header waves-effect waves-cyan",
+            "slug": "gallery",
+            "icon": "photo_library",
+            "submenu": [
+                {
+                    "url": "admin/album",
+                    "name": "Album",
+                    "i18n": "Album",
+                    "slug": "album",
+                    "icon": "album"
+                },
+                {
+                    "url": "admin/image",
+                    "name": "Image",
+                    "i18n": "Image",
+                    "slug": "image",
+                    "icon": "image"
                 }
             ]
         },
