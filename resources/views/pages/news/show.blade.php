@@ -4,7 +4,7 @@
             <div class="testimonial-wrap">
                 <div class="testimonial-item">
                     <img
-                        src="{{$news->image}}"
+                        src="{{asset($news->image)}}"
                         class="testimonial-img"
                         alt="{{$news->heading}}"
                     />
