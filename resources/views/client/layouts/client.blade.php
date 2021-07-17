@@ -25,6 +25,8 @@
   <link href="{{asset('vendors/client/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('vendors/client/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('vendors/client/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}">
+
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/client/style.css')}}" rel="stylesheet">
@@ -44,9 +46,10 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="{{route('home')}}">Home</a></li>
+          <li><a class="nav-link scrollto active" href="/page/about">About Us</a></li>
           <li class="dropdown"><a href=""><span>The School</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/page/about">About Us</a></li>
+              {{-- <li><a href="/page/about">About Us</a></li> --}}
               <li><a href="/page/rules">Rules and Regulations</a></li>
               <li><a href="/page/responsibility">Social Responsibility</a></li>
               <li><a href="/page/accreditation">Accreditation</a></li>
@@ -83,7 +86,7 @@
                               Valayal ,Keezhallur - 670612<br>
 
                               Kannur ,kerala ,india<br>
-                              
+
                               5km from Kannur Airport<br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
@@ -106,6 +109,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/admin/dashboard">Admin Panel</a></li>
             </ul>
           </div>
 
@@ -135,8 +139,8 @@
         &copy; Copyright <strong><span>Grace International School</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        
-        Designed by <a href="https://bootstrapmade.com/"></a>
+
+        {{-- Designed by <a href="#"></a> --}}
       </div>
     </div>
   </footer><!-- End Footer -->

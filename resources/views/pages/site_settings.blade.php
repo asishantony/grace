@@ -8,12 +8,18 @@
 @section('vendor-style')
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/select2/select2.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/sweetalert/sweetalert.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/select2/select2-materialize.css')}}">
 @endsection
 
 {{-- page style --}}
 @section('page-style')
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages/page-account-settings.css')}}">
+<style>
+    .quill-section{
+        padding-bottom: 25px;
+    }
+</style>
 @endsection
 
 {{-- page content --}}
@@ -143,6 +149,14 @@
         <div class="card-panel">
           <form class="infovalidate" id="info-form">
             <div class="row">
+              {{-- <div class="col s12">
+                <label for="editor">Vision</label>
+                <div id="about-us-quill">
+                    <div class="editor" id="quill_vision">
+                        {$site_data['vision']}
+                    </div>
+                </div>
+              </div> --}}
               <div class="col s12">
                 <div class="input-field">
                   <textarea class="materialize-textarea" id="vision" name="vision"
@@ -157,19 +171,34 @@
                   <label for="mission">Mission</label>
                 </div>
               </div>
-              <div class="col s12">
+              {{-- <div class="col s12">
                 <div class="input-field">
                   <textarea class="materialize-textarea" id="about" name="about"
                     placeholder="About Us" >{{$site_data["about"]}}</textarea>
                   <label for="about">About Us</label>
                 </div>
-              </div>
+              </div> --}}
               <div class="col s12">
-                <div class="input-field">
+                <label for="editor">About Us</label>
+                <div id="about-us-quill" class="quill-section">
+                    <div class="editor" id="quill_about">
+                        {!!$site_data['about']!!}
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="col s12">
+                <label for="editor">Rules and Regulations</label>
+                <div id="rules-quill" class="quill-section">
+                    <div class="editor" id="quill_rules">
+                        {!!$site_data['rules']!!}
+                    </div>
+                </div>
+                {{-- <div class="input-field">
                   <textarea class="materialize-textarea" id="rules" name="rules"
                     placeholder="Rules and Regulations" >{{$site_data["rules"]}}</textarea>
                   <label for="rules">Rules and Regulations</label>
-                </div>
+                </div> --}}
               </div>
               <div class="col s12">
                 <div class="input-field">
@@ -261,6 +290,7 @@
 @section('vendor-script')
 <script src="{{asset('vendors/select2/select2.full.min.js')}}"></script>
 <script src="{{asset('vendors/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('vendors/quill/quill.min.js')}}"></script>
 <script src="{{asset('vendors/sweetalert/sweetalert.min.js')}}"></script>
 
 @endsection

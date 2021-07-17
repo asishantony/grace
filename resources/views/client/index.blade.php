@@ -44,9 +44,10 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto active" href="/page/about">About Us</a></li>
           <li class="dropdown"><a href="#"><span>The School</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/page/about">About Us</a></li>
+              {{-- <li><a href="/page/about">About Us</a></li> --}}
               <li><a href="/page/rules">Rules and Regulations</a></li>
               <li><a href="/page/responsibility">Social Responsibility</a></li>
               <li><a href="/page/accreditation">Accreditation</a></li>
@@ -133,7 +134,7 @@
             <img src="{{asset('images/client/about.jpg')}}" class="w-100"/>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>{{\Illuminate\Support\Str::limit($about,500)}} </p>
+            <p>{!!\Illuminate\Support\Str::limit($about,500)!!} </p>
             <a href="/page/about" class="btn-learn-more">Learn More</a>
           </div>
         </div>
@@ -150,7 +151,7 @@
           <div class="col-lg-6 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box greendk">
               <h3><strong>OUR VISION</strong> </h3>
-              <p class="pt-0">{{$vision}}
+              <p class="pt-0">{!!$vision!!}
               </p>
               <a href="{{'/page/vision'}}">Read more &raquo;</a>
             </div>
@@ -684,6 +685,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/admin/dashboard">Admin Panel</a></li>
             </ul>
           </div>
 
@@ -713,7 +715,7 @@
       </div>
       <div class="credits">
 
-        Designed by <a href=""></a>
+        {{-- Designed by <a href=""></a> --}}
       </div>
     </div>
   </footer><!-- End Footer -->

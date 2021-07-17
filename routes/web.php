@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\AlbumController;
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\GalleryController;
 
 
 /*
@@ -26,6 +26,8 @@ use App\Http\Controllers\ImageController;
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route::get('/', [ClientHomeController::class, 'home'])->name('home');
 Route::get('/page/{slug}',[ClientHomeController::class,'view']);
+
+
 Route::get('/admin/news/',[NewsController::class,'index']);
 Route::post('/admin/news/save',[NewsController::class,'store']);
 Route::get('/admin/news/{id}',[NewsController::class,'show']);
@@ -44,13 +46,22 @@ Route::post('/admin/album/delete',[AlbumController::class,'destroy']);
 Route::post('/admin/album/toggle-status',[AlbumController::class,'toggleStatus']);
 Route::post('/admin/album/toggle-featured',[AlbumController::class,'toggleFeatured']);
 
+Route::get('/admin/gallery/',[GalleryController::class,'index']);
+Route::post('/admin/gallery/save',[GalleryController::class,'store']);
+Route::get('/admin/gallery/{id}',[GalleryController::class,'show']);
+Route::get('/admin/gallery/{id}/edit',[GalleryController::class,'edit']);
+Route::patch('/admin/gallery/{id}',[GalleryController::class,'update']);
+Route::post('/admin/gallery/delete',[GalleryController::class,'destroy']);
+Route::post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
+Route::post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
+
 Route::get('/admin/site_settings/',[SiteSettingController::class,'index']);
 Route::post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
 Route::post('/admin/site_settings/social/{id}',[SiteSettingController::class,'updateSocial']);
 Route::post('/admin/site_settings/basic/{id}',[SiteSettingController::class,'updateBasic']);
 
 
-Route::get('/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
+Route::get('/admin/dashboard', [PageController::class, 'blankPage'])->middleware('auth');
 Route::get('/page-collapse', [PageController::class, 'collapsePage']);
 
 // locale route
