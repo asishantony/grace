@@ -52,7 +52,6 @@ $("#news-form").on("submit", function (e) {
         },
         error: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
             swal({
                 title: "Error",
                 icon: "error",
@@ -65,7 +64,6 @@ function editSubmit() {
         e.preventDefault();
         var formData = new FormData(this);
         var id = $(this).data("id");
-        console.log({ id, formData });
         $.ajax({
             type: "PATCH",
 
@@ -93,7 +91,6 @@ function editSubmit() {
             },
             error: function (data) {
                 var result = JSON.parse(data);
-                console.log(result);
                 swal({
                     title: "Error",
                     icon: "error",
@@ -112,7 +109,6 @@ $("span.delete").on("click", function (e) {
 
         success: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
             if (result.success) {
                 swal({
                     title: result.message,
@@ -147,7 +143,6 @@ $(".status-change").on("click", function (e) {
 
         success: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
             if (result.success) {
                 swal({
                     title: result.message,
@@ -181,7 +176,6 @@ $(".featured-change").on("click", function (e) {
 
         success: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
             if (result.success) {
                 swal({
                     title: result.message,
@@ -215,7 +209,6 @@ $(".view-news").on("click", function (e) {
 
         success: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
             if (result.success) {
                 // swal({
                 //     title: result.message,
