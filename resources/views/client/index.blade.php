@@ -188,81 +188,15 @@
                 <div class="testimonial-item">
                   <img src="{{$news_item->image}}" class="testimonial-img" alt="{{$news_item->heading}}">
                   <h3>{{$news_item->heading}}</h3>
-                  <h4>{{$news_item->due_date}}</h4>
+                  {{-- <h4>{{$news_item->due_date}}</h4> --}}
                   <p>
-                    
                     {{$news_item->content}}
-                   
                   </p>
                   <a href="#">Read more &raquo;</a>
                 </div>
               </div>
             </div><!-- End testimonial item -->
             @endforeach
-
-            {{-- <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news2.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news3.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news1.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news2.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item --> --}}
 
           </div>
           <div class="swiper-pagination"></div>
@@ -347,7 +281,7 @@
       </div>
     </section><!-- End Services Section -->
 
-   
+
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta" >
@@ -552,7 +486,7 @@
               <img src="{{asset('images/client/team/ruth.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sr. Ruth</h4>
+                  <h4>Ms. Ruth del Val Sanchez</h4>
                   <span>Principal</span>
                 </div>
                 <div class="social">
@@ -634,8 +568,8 @@
               <option value="other">III</option>
             </select>
             </div>
-          
-         
+
+
           <div class="form-group">
             <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
           </div>
@@ -672,14 +606,14 @@
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>{{$email}}</p>
+                  <p><a href="mailto:{{$email}}">{{$email}}</a></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Us</h3>
-                  <p>{{$phone1}}<br>{{$phone2}}</p>
+                  <p><a href="tel:{{$phone1}}">{{$phone1}}</a><br><a href="tel:{{$phone2}}">{{$phone2}}</a></p>
                 </div>
               </div>
             </div>
@@ -779,7 +713,7 @@
         &copy; Copyright <strong><span>Grace International School</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        
+
         Designed by <a href="https://bootstrapmade.com/"></a>
       </div>
     </div>
