@@ -11,6 +11,6 @@ class Image extends Model
 
     public function albums()
     {
-        return $this->belongsToMany(Album::class,'album');
+        return $this->belongsTo(Album::class,'album_id','id');
     }
 }

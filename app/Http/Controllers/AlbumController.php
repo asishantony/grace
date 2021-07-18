@@ -15,7 +15,7 @@ class AlbumController extends Controller
     public function index()
     {
         //
-        $album_data = Album::all();
+        $album_data = Album::with('images')->get();
         // dd($album_data);
         if (!$album_data) {
             abort();

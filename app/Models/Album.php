@@ -17,6 +17,6 @@ class Album extends Model
 
     public function images()
     {
-        return $this->belongsToMany(Image::class,'image');
+        return $this->hasMany(Image::class);
     }
 }
