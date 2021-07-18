@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsEvents;
 use App\Http\Requests\NewsCreateRequest;
 use File;
+use Storage;
 
 class NewsController extends Controller
 {
