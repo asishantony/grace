@@ -136,7 +136,7 @@ return [
     "Administration"      => "Administration",
     "News & Events"       => "News & Events",
     "Site Settings"       => "Site Settings",
-    "Rules & Regulations" => "Rules & Regulations",
+    "Programmes"          => "Programmes",
     "Album"               => "Album",
     "Gallery"             => "Gallery",
     "Image"               => "Image",

@@ -15,8 +15,11 @@ class CreateImageTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->foreignId('album_id')
+                ->constrained('albums')
+                ->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
             $table->string('url');
             $table->boolean('status');
             $table->boolean('featured');

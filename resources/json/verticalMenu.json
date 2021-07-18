@@ -16,10 +16,10 @@
                     "icon": "domain"
                 },
                 {
-                    "url": "admin/rules",
-                    "name": "Rules & Regulations",
-                    "i18n": "Rules & Regulations",
-                    "slug": "rules-regulations",
+                    "url": "admin/programmes",
+                    "name": "Programmes",
+                    "i18n": "Programmes",
+                    "slug": "programmes",
                     "icon": "domain"
                 },
                 {
@@ -46,7 +46,7 @@
                     "icon": "album"
                 },
                 {
-                    "url": "admin/image",
+                    "url": "admin/gallery",
                     "name": "Image",
                     "i18n": "Image",
                     "slug": "image",

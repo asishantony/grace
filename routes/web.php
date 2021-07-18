@@ -28,7 +28,7 @@ Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['web'])->group(function () {
     Route:: get('/admin/news/',[NewsController::class,'index']);
     Route:: post('/admin/news/save',[NewsController::class,'store']);
     Route:: get('/admin/news/{id}',[NewsController::class,'show']);
@@ -46,6 +46,15 @@ Route::middleware(['auth'])->group(function () {
     Route:: post('/admin/album/delete',[AlbumController::class,'destroy']);
     Route:: post('/admin/album/toggle-status',[AlbumController::class,'toggleStatus']);
     Route:: post('/admin/album/toggle-featured',[AlbumController::class,'toggleFeatured']);
+
+    Route:: get('/admin/gallery/',[GalleryController::class,'index']);
+    Route:: post('/admin/gallery/save',[GalleryController::class,'store']);
+    Route:: get('/admin/gallery/{id}',[GalleryController::class,'show']);
+    Route:: get('/admin/gallery/{id}/edit',[GalleryController::class,'edit']);
+    Route:: patch('/admin/gallery/{id}',[GalleryController::class,'update']);
+    Route:: post('/admin/gallery/delete',[GalleryController::class,'destroy']);
+    Route:: post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
+    Route:: post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
 
     Route:: get('/admin/gallery/',[GalleryController::class,'index']);
     Route:: post('/admin/gallery/save',[GalleryController::class,'store']);
