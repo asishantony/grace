@@ -187,7 +187,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="{{$news_item->image}}" class="testimonial-img" alt="{{$news_item->heading}}">
+                  <img src="{{asset('storage/'.$news_item->image)}}" class="testimonial-img" alt="{{$news_item->heading}}">
                   <h3>{{$news_item->heading}}</h3>
                   {{-- <h4>{{$news_item->due_date}}</h4> --}}
                   <p>

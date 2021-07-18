@@ -59,7 +59,7 @@ class NewsController extends Controller
         $news->heading = $request->heading;
         $news->content = $request->content;
         $news->due_date= $request->due_date;
-        $news->image = '/storage/'.$path;
+        $news->image = $path;
         $news->priority = NewsEvents::max('priority')+1;
         try {
             $news->save();
@@ -149,7 +149,7 @@ class NewsController extends Controller
         $news->heading = $request->heading;
         $news->content = $request->content;
         $news->due_date= $request->due_date;
-        $news->image = '/storage/'.$path;
+        $news->image = $path;
         $news->priority = NewsEvents::max('priority')+1;
         try {
             $news->save();
