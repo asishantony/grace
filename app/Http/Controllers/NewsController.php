@@ -181,14 +181,13 @@ class NewsController extends Controller
             if ($imagePath) {
             //    dd($imagePath);
                $delete = Storage::disk('public')->delete($imagePath);
-               dd($delete);
 
             }
             $news_data = NewsEvents::destroy($request->id);
             $return_data = array("success"=>true, "message"=>"News Deleted Successfully");
         } catch (\Throwable $th) {
             // dd($th);
-            $return_data = array("success"=>false, "message"=>"News Deletion Failed");
+            $return_data = array("success"=>false, "message"=>"News Deletion Failed",'error'=> $th);
         }
         return json_encode($return_data);
     }
