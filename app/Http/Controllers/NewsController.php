@@ -18,9 +18,6 @@ class NewsController extends Controller
     public function index()
     {
         $news_data = NewsEvents::orderBy('due_date',"desc")->get();
-        if (!$news_data) {
-            abort();
-        }
         $breadcrumbs = [
             ['link' => "javascript:void(0)", 'name' => "Administration"], ['name'=>"News & Events"]
         ];

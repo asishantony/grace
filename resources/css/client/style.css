@@ -1389,11 +1389,6 @@ section {
     left: 0;
     transition: left ease-in-out 0.3s;
 }
-.team .no-data {
-    color: red;
-    font-weight: bold;
-    text-align: center;
-}
 
 /*--------------------------------------------------------------
 # Pricing
@@ -1938,4 +1933,10 @@ section {
 section.inner-page h2 {
     font-weight: 900;
     color: #034b26;
+}
+
+.no-data {
+    color: red;
+    font-weight: bold;
+    text-align: center;
 }

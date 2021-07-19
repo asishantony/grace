@@ -55,6 +55,7 @@
               <li><a href="/page/achievements">Achievements</a></li>
             </ul>
           </li>
+          <li><a class="nav-link" href="/programmes">Programmes</a></li>
           <li><a class="nav-link scrollto" href="#services">Facilities</a></li>
           <li><a class="nav-link scrollto " href="#cta">Admission</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">News and Events</a></li>
