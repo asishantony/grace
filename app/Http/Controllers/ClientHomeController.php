@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SchoolDetails;
 use App\Models\NewsEvents;
+use App\Models\Programmes;
 use Carbon\Carbon;
 
 class ClientHomeController extends Controller
@@ -16,9 +17,10 @@ class ClientHomeController extends Controller
                         'rules'=>'Rules and Regulations','responsibility'=>'Social Responsibility',
                         'accreditation'=>'Accreditation',"chairman_message"=>"Chairman's Message");
         $content = SchoolDetails::get($page)->first();
-        $data = array('content' => $content[$page] , 'title' =>$titles[$page]);
+        $data = array('content' => $content[$page] , 'title' => $titles[$page]);
         return view('client.pages.about',$data);
     }
+
     public function home()
     {
         $data = SchoolDetails::get()->first()->toArray();
@@ -29,11 +31,17 @@ class ClientHomeController extends Controller
                             ->get();
         // dd($news->toArray());
         // $news = array();
-       
+
         return view('client.index',$data)->with('news',$news);
     }
-    public function create()
+    public function programmes()
     {
-        
+        $programmes = Programmes::where('status',1)->get();
+        return view('client.pages.programmes')->with('programmes',$programmes);
+    }
+    public function showProgram($id)
+    {
+        $program = Programmes::find($id);
+        return view('client.pages.program_show')->with('program',$program);
     }
 }

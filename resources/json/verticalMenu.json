@@ -53,41 +53,6 @@
                     "icon": "image"
                 }
             ]
-        },
-        {
-            "navheader": "Misc ",
-            "icon": "more_horiz"
-        },
-        {
-            "url": "javascript:void(0)",
-            "name": "Menu levels",
-            "i18n": "Menu levels",
-            "class": "collapsible-header waves-effect waves-cyan",
-            "icon": "photo_filter",
-            "slug": "",
-            "submenu": [
-                {
-                    "url": "javascript:void(0)",
-                    "name": "Second level",
-                    "i18n": "Second level",
-                    "slug": ""
-                },
-                {
-                    "url": "javascript:void(0)",
-                    "class": "collapsible-header waves-effect waves-cyan",
-                    "name": "Second level child",
-                    "i18n": "Second level child",
-                    "slug": "",
-                    "submenu": [
-                        {
-                            "url": "javascript:void(0)",
-                            "name": "Third level",
-                            "i18n": "Third level",
-                            "slug": ""
-                        }
-                    ]
-                }
-            ]
         }
     ]
 }

@@ -134,14 +134,14 @@ h6 {
 }
 
 /* #header .logo img {
-     max-height: 40px; 
+     max-height: 40px;
 } */
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
     padding: 0;
@@ -259,7 +259,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
     color: #0b2341;
@@ -1388,6 +1388,11 @@ section {
 .team .member:hover .social {
     left: 0;
     transition: left ease-in-out 0.3s;
+}
+.team .no-data {
+    color: red;
+    font-weight: bold;
+    text-align: center;
 }
 
 /*--------------------------------------------------------------

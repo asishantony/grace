@@ -141,8 +141,8 @@ class GalleryController extends Controller
         if (Storage::disk('public')->exists($imageUrl)) {
                $delete = Storage::disk('public')->delete($imageUrl);
                return $delete;
-            }
-            return null;
+        }
+    return null;
 
     }
 }

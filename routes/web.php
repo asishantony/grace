@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProgrammesController;
 
 
 /*
@@ -25,6 +26,8 @@ use App\Http\Controllers\GalleryController;
 // Page Route
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
+Route:: get('/programmes',[ClientHomeController::class,'programmes']);
+Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram']);
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group
@@ -64,6 +67,15 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/gallery/delete',[GalleryController::class,'destroy']);
     Route:: post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
     Route:: post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
+
+    Route:: get('/admin/programmes/',[ProgrammesController::class,'index']);
+    Route:: post('/admin/programmes/save',[ProgrammesController::class,'store']);
+    Route:: get('/admin/programmes/{id}',[ProgrammesController::class,'show']);
+    Route:: get('/admin/programmes/{id}/edit',[ProgrammesController::class,'edit']);
+    Route:: patch('/admin/programmes/{id}',[ProgrammesController::class,'update']);
+    Route:: post('/admin/programmes/delete',[ProgrammesController::class,'destroy']);
+    Route:: post('/admin/programmes/toggle-status',[ProgrammesController::class,'toggleStatus']);
+    Route:: post('/admin/programmes/toggle-featured',[ProgrammesController::class,'toggleFeatured']);
 
     Route:: get('/admin/site_settings/',[SiteSettingController::class,'index']);
     Route:: post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
