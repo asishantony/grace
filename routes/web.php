@@ -72,7 +72,7 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/programmes/save',[ProgrammesController::class,'store']);
     Route:: get('/admin/programmes/{id}',[ProgrammesController::class,'show']);
     Route:: get('/admin/programmes/{id}/edit',[ProgrammesController::class,'edit']);
-    Route:: patch('/admin/programmes/{id}',[ProgrammesController::class,'update']);
+    Route:: post('/admin/programmes/update',[ProgrammesController::class,'update']);
     Route:: post('/admin/programmes/delete',[ProgrammesController::class,'destroy']);
     Route:: post('/admin/programmes/toggle-status',[ProgrammesController::class,'toggleStatus']);
     Route:: post('/admin/programmes/toggle-featured',[ProgrammesController::class,'toggleFeatured']);
