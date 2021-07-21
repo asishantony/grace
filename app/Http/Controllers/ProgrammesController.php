@@ -82,6 +82,7 @@ class ProgrammesController extends Controller
      */
     public function show($id)
     {
+        dd($id);
         //
         try {
             $data = Programmes::find($id);
@@ -110,25 +111,16 @@ class ProgrammesController extends Controller
      */
     public function edit($id)
     {
-        //
-        try {
-            $data = Programmes::find($id);
-            // dd($data->toArray());
-            if ($data->count() > 0) {
-                // dd($data->toArray());
-                $html = view('pages.programmes.edit')->with('program',$data)->render();
-                $return_data = array("success"=>true, 'html'=>$html);
+        $data = Programmes::find($id);
+       $breadcrumbs = [
+            ['link' => "javascript:void(0)", 'name' => "Administration"],['link' => "/admin/programmes", 'name' => "Programmes"], ['name'=>"Edit"]
+        ];
+        $pageConfigs = ['pageHeader' => true];
 
-            }else{
-                $return_data = array("success"=>false, "message"=>"No Program Found");
+        return view('pages.programmes.edit', ['pageConfigs' => $pageConfigs],[
+            'breadcrumbs' => $breadcrumbs
+        ])->with('program',$data);
 
-            }
-        } catch (\Throwable $th) {
-            //throw $th;
-            $return_data = array("success"=>false, "message"=>"Error in getting programmes data");
-        }
-
-        return json_encode($return_data);
     }
 
     /**
@@ -138,9 +130,10 @@ class ProgrammesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        dd($request->files->all());
     }
 
     /**

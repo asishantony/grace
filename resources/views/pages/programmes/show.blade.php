@@ -4,13 +4,12 @@
             <div class="testimonial-wrap">
                 <div class="testimonial-item">
                     <img
-                        src="{{asset($news->image)}}"
+                        src="{{asset('storage/'.$program->image)}}"
                         class="testimonial-img"
-                        alt="{{$news->heading}}"
+                        alt="{{$program->name}}"
                     />
-                    <h3>{{$news->heading}}</h3>
-                    <h4>{{$news->due_date}}</h4>
-                    <p>{{$news->content}}</p>
+                    <h3>{{$program->name}}</h3>
+                    <p>{{$program->description}}</p>
                 </div>
             </div>
         </div>

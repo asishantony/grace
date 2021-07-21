@@ -11,7 +11,8 @@ $(document).ready(function () {
     // if ($(window).width() > 900) {
     //     $("#email-sidenav").removeClass("sidenav");
     // }
-    $(".dropify").dropify();
+    var drEvent = $(".dropify").dropify();
+
     $("#programmes-table").DataTable({
         responsive: false,
         ordering: false,
@@ -58,49 +59,7 @@ $("#programmes-form").on("submit", function (e) {
         },
     });
 });
-function editSubmit() {
-    $("#edit-form").on("submit", function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        var name = $(this).find("#name").val();
-        var description = $(this).find("#description").val();
-        var image = $(this).find("#image").val();
-        var id = $(this).data("id");
-        $.ajax({
-            type: "PATCH",
 
-            url: `/admin/programmes/${id}`,
-
-            data: formData,
-            processData: false,
-            contentType: false,
-
-            success: function (data) {
-                var result = JSON.parse(data);
-                if (result.success) {
-                    swal({
-                        title: result.message,
-                        icon: "success",
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    swal({
-                        title: result.message,
-                        icon: "error",
-                    });
-                }
-            },
-            error: function (data) {
-                var result = JSON.parse(data);
-                swal({
-                    title: "Error",
-                    icon: "error",
-                });
-            },
-        });
-    });
-}
 $("span.delete").on("click", function (e) {
     e.preventDefault();
     var id = $(this).data("id");
@@ -204,35 +163,34 @@ $(".view-program").on("click", function (e) {
         },
     });
 });
-$(".edit-program").on("click", function (e) {
-    var id = $(this).data("id");
-    $.ajax({
-        type: "GET",
-        url: `/admin/programmes/${id}/edit`,
+// $(".edit-program").on("click", function (e) {
+//     var id = $(this).data("id");
+//     $.ajax({
+//         type: "GET",
+//         url: `/admin/programmes/${id}/edit`,
 
-        success: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            if (result.success) {
-                $("#edit-modal").html(result.html);
-                $(".dropify").dropify();
-                $(".datepicker").datepicker();
-                editSubmit();
-                $("#edit-modal").modal("open");
-            } else {
-                swal({
-                    title: result.message,
-                    icon: "error",
-                });
-            }
-        },
-        error: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            // swal({
-            //     title: "Error",
-            //     icon: "error",
-            // });
-        },
-    });
-});
+//         success: function (data) {
+//             var result = JSON.parse(data);
+//             // console.log(result);
+//             if (result.success) {
+//                 $("#edit-modal").html(result.html);
+//                 $(".dropify").dropify();
+//                 editSubmit();
+//                 $("#edit-modal").modal("open");
+//             } else {
+//                 swal({
+//                     title: result.message,
+//                     icon: "error",
+//                 });
+//             }
+//         },
+//         error: function (data) {
+//             var result = JSON.parse(data);
+//             // console.log(result);
+//             // swal({
+//             //     title: "Error",
+//             //     icon: "error",
+//             // });
+//         },
+//     });
+// });
