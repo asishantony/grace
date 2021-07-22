@@ -1940,3 +1940,7 @@ section.inner-page h2 {
     font-weight: bold;
     text-align: center;
 }
+.academic h3 {
+    font-weight: 900;
+    color: #034b26;
+}

@@ -57,9 +57,17 @@
               <li><a href="/page/achievements">Achievements</a></li>
             </ul>
           </li>
+          <li class="dropdown"><a href="#"><span>Academic</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                @foreach ($academics as $academic)
+              {{-- <li><a href="/page/about">About Us</a></li> --}}
+              <li><a href="/academics/{{$academic->id}}">{{$academic->name}}</a></li>
+              @endforeach
+            </ul>
+          </li>
           <li><a class="nav-link" href="/programmes">Programmes</a></li>
           <li><a class="nav-link scrollto" href="/#services">Facilities</a></li>
-          <li><a class="nav-link scrollto " href="/#cta">Admission</a></li>
+          {{-- <li><a class="nav-link scrollto " href="/#cta">Admission</a></li> --}}
           <li><a class="nav-link scrollto" href="#team">News and Events</a></li>
           <li><a href="/#portfolio">Gallery</a></li>
           <li><a class="getstarted scrollto" href="/#contact">Contact Us</a></li>

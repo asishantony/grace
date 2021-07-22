@@ -6,18 +6,28 @@ use Illuminate\Http\Request;
 use App\Models\SchoolDetails;
 use App\Models\NewsEvents;
 use App\Models\Programmes;
+use App\Models\Academics;
 use Carbon\Carbon;
 
 class ClientHomeController extends Controller
 {
     public function view($page)
     {
-        // dd($page);
-        $titles = array('about'=>'About Us','vision'=>'Our Vision','mission'=>'Our Mission','achievements'=>'Achievements',
-                        'rules'=>'Rules and Regulations','responsibility'=>'Social Responsibility',
-                        'accreditation'=>'Accreditation',"chairman_message"=>"Chairman's Message");
+        $titles = [
+            'about'            => 'About Us',
+            'vision'           => 'Our Vision',
+            'mission'          => 'Our Mission',
+            'achievements'     => 'Achievements',
+            'rules'            => 'Rules and Regulations',
+            'responsibility'   => 'Social Responsibility',
+            'accreditation'    => 'Accreditation',
+            "chairman_message" => "Chairman's Message"
+            ];
         $content = SchoolDetails::get($page)->first();
-        $data = array('content' => $content[$page] , 'title' => $titles[$page]);
+        $data = [
+            'content' => $content[$page],
+            'title'   => $titles[$page]
+    ];
         return view('client.pages.about',$data);
     }
 
@@ -29,10 +39,8 @@ class ClientHomeController extends Controller
                             ->where('status',1)
                             ->where('due_date','>',Carbon::now()->format('Y-m-d'))
                             ->get();
-        // dd($news->toArray());
-        // $news = array();
-
-        return view('client.index',$data)->with('news',$news);
+        $academics = Academics::select('id', 'name')->where('status',1)->get();
+        return view('client.index',$data)->with('news',$news)->with('academics',$academics);
     }
     public function programmes()
     {
@@ -43,5 +51,11 @@ class ClientHomeController extends Controller
     {
         $program = Programmes::find($id);
         return view('client.pages.program_show')->with('program',$program);
+    }
+    public function showAcademic($id)
+    {
+        $academic = Academics::find($id);
+        $academics = Academics::select('id', 'name')->where('status',1)->get();
+        return view('client.pages.academic_show')->with('academic',$academic)->with('academics',$academics);
     }
 }

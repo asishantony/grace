@@ -29,6 +29,7 @@ use App\Http\Controllers\AcademicController;
 Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
 Route:: get('/programmes',[ClientHomeController::class,'programmes']);
 Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram']);
+Route:: get('/academics/{id}',[ClientHomeController::class,'showAcademic']);
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group
