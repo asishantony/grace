@@ -323,73 +323,33 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".school">School Environment</li>
-              <li data-filter=".filter-facilities">Facilities</li>
+                @foreach($albums as $album)
+              <li data-filter="{{'.'.$album->name}}">{{$album->name}}</li>
+              @endforeach
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item school">
-            <img src="{{asset('images/client/news1.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Auditorium</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/news1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1   "><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        @foreach($albums as $album)
+            @foreach($album->images as $image)
+            <div class="col-lg-4 col-md-6 portfolio-item {{$album->name}}">
+                <a href="{{asset('storage/'.$image->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$image->name}}"><img src="{{asset('storage/'.$image->url)}}" class="img-fluid" alt="{{$image->name}}"></a>
+                @if($image->name || $image->description)
+                    <div class="portfolio-info">
+                        @if($image->name)
+                        <h4>{{$image->name}}</h4>
+                        @endif
+                        @if($image->description)
+                            <p>{{$image->description}}</p>
+                        @endif
+                    {{-- <a href="{{asset('images/client/news1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1   "><i class="bx bx-plus"></i></a>
+                    <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a> --}}
+                    </div>
+                @endif
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities school">
-            <img src="{{asset('images/client/f1.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Test</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item school">
-            <img src="{{asset('images/client/news2.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/news2.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities">
-            <img src="{{asset('images/client/f3.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f3.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-school">
-            <img src="{{asset('images/client/news3.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="{{asset('images/client/news3.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities">
-            <img src="{{asset('images/client/f2.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f2.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
+            @endforeach
+          @endforeach
 
         </div>
 

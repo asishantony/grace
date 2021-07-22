@@ -7,6 +7,7 @@ use App\Models\SchoolDetails;
 use App\Models\NewsEvents;
 use App\Models\Programmes;
 use App\Models\Academics;
+use App\Models\Album;
 use Carbon\Carbon;
 
 class ClientHomeController extends Controller
@@ -39,8 +40,18 @@ class ClientHomeController extends Controller
                             ->where('status',1)
                             ->where('due_date','>',Carbon::now()->format('Y-m-d'))
                             ->get();
-        $academics = Academics::select('id', 'name')->where('status',1)->get();
-        return view('client.index',$data)->with('news',$news)->with('academics',$academics);
+        $academics = Academics::select('id', 'name')->where('status',1)->take(3)->get();
+        $albums = Album::with('images')
+                        ->select('id', 'name')
+                        ->where('featured',1)
+                        ->where('status',1)
+                        ->has('images')
+                        ->get();
+        // dd($albums->toArray());
+        return view('client.index',$data)
+                ->with('news',$news)
+                ->with('academics',$academics)
+                ->with('albums',$albums);
     }
     public function programmes()
     {
