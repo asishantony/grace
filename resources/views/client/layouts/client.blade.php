@@ -57,6 +57,8 @@
               <li><a href="/page/achievements">Achievements</a></li>
             </ul>
           </li>
+          @isset($academics)
+          @if(count($academics) > 0)
           <li class="dropdown"><a href="#"><span>Academic</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
                 @foreach ($academics as $academic)
@@ -65,6 +67,8 @@
               @endforeach
             </ul>
           </li>
+          @endif
+          @endisset
           <li><a class="nav-link" href="/programmes">Programmes</a></li>
           <li><a class="nav-link scrollto" href="/#services">Facilities</a></li>
           {{-- <li><a class="nav-link scrollto " href="/#cta">Admission</a></li> --}}
