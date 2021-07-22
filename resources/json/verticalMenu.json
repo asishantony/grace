@@ -23,6 +23,13 @@
                     "icon": "domain"
                 },
                 {
+                    "url": "admin/academics",
+                    "name": "Academics",
+                    "i18n": "Academics",
+                    "slug": "academics",
+                    "icon": "domain"
+                },
+                {
                     "url": "admin/site_settings",
                     "name": "Site Settings",
                     "i18n": "Site Settings",
