@@ -10,6 +10,7 @@ use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgrammesController;
+use App\Http\Controllers\AcademicController;
 
 
 /*
@@ -63,7 +64,7 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/gallery/save',[GalleryController::class,'store']);
     Route:: get('/admin/gallery/{id}',[GalleryController::class,'show']);
     Route:: get('/admin/gallery/{id}/edit',[GalleryController::class,'edit']);
-    Route:: patch('/admin/gallery/{id}',[GalleryController::class,'update']);
+    Route:: put('/admin/gallery/{id}',[GalleryController::class,'update']);
     Route:: post('/admin/gallery/delete',[GalleryController::class,'destroy']);
     Route:: post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
     Route:: post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
@@ -76,6 +77,16 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/programmes/delete',[ProgrammesController::class,'destroy']);
     Route:: post('/admin/programmes/toggle-status',[ProgrammesController::class,'toggleStatus']);
     Route:: post('/admin/programmes/toggle-featured',[ProgrammesController::class,'toggleFeatured']);
+
+
+    Route:: get('/admin/academics/',[AcademicController::class,'index']);
+    Route:: post('/admin/academics/save',[AcademicController::class,'store']);
+    Route:: get('/admin/academics/{id}',[AcademicController::class,'show']);
+    Route:: get('/admin/academics/{id}/edit',[AcademicController::class,'edit']);
+    Route:: put('/admin/academics/{id}',[AcademicController::class,'update']);
+    Route:: post('/admin/academics/delete',[AcademicController::class,'destroy']);
+    Route:: post('/admin/academics/toggle-status',[AcademicController::class,'toggleStatus']);
+    Route:: post('/admin/academics/toggle-featured',[AcademicController::class,'toggleFeatured']);
 
     Route:: get('/admin/site_settings/',[SiteSettingController::class,'index']);
     Route:: post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
