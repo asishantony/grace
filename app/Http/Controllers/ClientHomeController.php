@@ -34,24 +34,29 @@ class ClientHomeController extends Controller
 
     public function home()
     {
+
         $data = SchoolDetails::get()->first()->toArray();
         $news= NewsEvents::orderBy('due_date','desc')
                             ->where('featured',1)
                             ->where('status',1)
                             ->where('due_date','>',Carbon::now()->format('Y-m-d'))
                             ->get();
-        $academics = Academics::select('id', 'name')->where('status',1)->take(3)->get();
+        $academics = Academics::select('id', 'name')->where('status',1)->get();
         $albums = Album::with('images')
                         ->select('id', 'name')
                         ->where('featured',1)
                         ->where('status',1)
                         ->has('images')
+                        ->take(3)
                         ->get();
-        // dd($albums->toArray());
+
+        $menuCheck =['gallery'=>count($albums)>0,'news' => count($news)>0,'academics'=>count($academics)>0];
+        // dd(count($albums),count($news),count($academics),$menuCheck);
         return view('client.index',$data)
                 ->with('news',$news)
                 ->with('academics',$academics)
-                ->with('albums',$albums);
+                ->with('albums',$albums)
+                ->with('menuCheck',$menuCheck);
     }
     public function programmes()
     {
