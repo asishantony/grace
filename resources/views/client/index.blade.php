@@ -71,7 +71,10 @@
           <li><a class="nav-link scrollto" href="#services">Facilities</a></li>
           {{-- <li><a class="nav-link scrollto " href="#cta">Admission</a></li> --}}
           <li><a class="nav-link scrollto" href="#testimonials">News and Events</a></li>
+            @if(count($albums) > 0)
+
           <li><a href="#portfolio">Gallery</a></li>
+          @endif
           <li><a class="getstarted scrollto" href="#about">Contact Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -311,6 +314,7 @@
     </section><!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
+    @if(count($albums) > 0)
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
@@ -355,6 +359,7 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+    @endif
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
