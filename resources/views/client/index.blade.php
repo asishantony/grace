@@ -354,23 +354,6 @@
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/fr_devassy.png')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr.Devassy Eerathara</h4>
-                  <span>Governing Body Member</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
               <img src="{{asset('images/client/team/clarance.png')}}" class="img-fluid" alt="" loading="lazy">
