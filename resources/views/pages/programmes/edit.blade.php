@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}"> --}}
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/dropify/css/dropify.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/sweetalert/sweetalert.css')}}">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{{-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
 
 
 @endsection

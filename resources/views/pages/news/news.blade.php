@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/dropify/css/dropify.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/sweetalert/sweetalert.css')}}">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{{-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
 <style>
  .testimonials .testimonial-wrap {
     padding-left: 0px;
@@ -105,7 +105,7 @@
 @section('content')
 {{-- //Datatable --}}
 <section class="users-list-wrapper section">
-  
+
   <a class="waves-effect waves-light btn modal-trigger mb-2 mr-1" href="#modal1">Add News</a>
   <div class="users-list-table">
     <div class="card">
@@ -135,7 +135,7 @@
                 {{-- <td><a href="{{asset('page-users-view')}}">dean3004</a>
                 </td> --}}
                 {{-- <td>{{$news->priority}}</td> --}}
-                <td style="cursor: pointer;"> 
+                <td style="cursor: pointer;">
                   @if ($news->featured == "1")
                     <span class="chip green lighten-5 featured-change" data-id="{{$news->id}}>
                      <span class="green-text">Featured</span>
@@ -186,14 +186,14 @@
   <div class="modal-content">
     <h4>Add News</h4>
           <!-- form start -->
-         
+
             <div class="input-field">
               <input type="text" class="validate" id="heading" name="heading">
               <label for="heading">Heading</label>
               <div class="input-field" >
                 <textarea class="materialize-textarea" id="content" name="content"></textarea>
                 <label for="content">Content</label>
-                
+
             </div>
             </div>
             <div class="input-field">
@@ -207,8 +207,8 @@
               <input type="file" name="image" id="image" class="dropify">
             {{-- <input type="file" id="input-file-now" class="" data-default-file="" name="file"/> --}}
             </div>
-           
-        
+
+
           <!-- form start end-->
         {{-- </div> --}}
   </div>
