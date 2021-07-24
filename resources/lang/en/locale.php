@@ -140,5 +140,6 @@ return [
     "Album"               => "Album",
     "Gallery"             => "Gallery",
     "Image"               => "Image",
+    "Academics"           => "Academics",
 ];
 ?>
