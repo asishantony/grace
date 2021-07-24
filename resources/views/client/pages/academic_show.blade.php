@@ -31,7 +31,7 @@
       {!!$academic->objectives!!}
       @endif
       @if ($academic->time_table != '')
-      <h3 class="mt-3">Tme Table</h3><hr>
+      <h3 class="mt-3">Time Table</h3><hr>
       {!!$academic->time_table!!}
       @endif
       @else

@@ -192,7 +192,7 @@ $("span.delete").on("click", function (e) {
     var id = $(this).data("id");
     $.ajax({
         type: "POST",
-        url: `/admin/academic/delete`,
+        url: `/admin/academics/delete`,
         data: { id: id },
 
         success: function (data) {

@@ -106,7 +106,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>About Grace International School</p>
+          <p>Grace International School</p>
         </div>
 
         <div class="row content">
