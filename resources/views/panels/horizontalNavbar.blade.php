@@ -18,19 +18,19 @@
           </h1>
         </li>
       </ul>
-      <div class="header-search-wrapper hide-on-med-and-down">
+      {{-- <div class="header-search-wrapper hide-on-med-and-down">
         <i class="material-icons">search</i>
         <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize"
           data-search="starter-kit-list">
         <ul class="search-list collection display-none"></ul>
-      </div>
+      </div> --}}
       <ul class="navbar-list right">
-        <li class="dropdown-language">
+        {{-- <li class="dropdown-language">
           <a class="waves-effect waves-block waves-light translation-button" href="javascript:void(0);"
             data-target="translation-dropdown">
             <span class="flag-icon flag-icon-gb"></span>
           </a>
-        </li>
+        </li> --}}
         <li class="hide-on-med-and-down">
           <a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);">
             <i class="material-icons">settings_overscan</i>
@@ -58,11 +58,11 @@
             </span>
           </a>
         </li>
-        <li>
+        {{-- <li>
           <a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right">
             <i class="material-icons">format_indent_increase</i>
           </a>
-        </li>
+        </li> --}}
       </ul>
       <!-- translation-button-->
       <ul class="dropdown-content" id="translation-dropdown">
@@ -168,7 +168,7 @@
         </li>
       </ul>
     </div>
-    <nav class="display-none search-sm">
+    {{-- <nav class="display-none search-sm">
       <div class="nav-wrapper">
         <form id="navbarForm">
           <div class="input-field search-input-sm">
@@ -180,7 +180,7 @@
           </div>
         </form>
       </div>
-    </nav>
+    </nav> --}}
   </nav>
   <!-- BEGIN: Horizontal nav start-->
   <nav class="white hide-on-med-and-down" id="horizontal-nav">
@@ -220,7 +220,7 @@
 </div>
 
 {{-- Quick search list --}}
-<ul class="display-none" id="default-search-main">
+{{-- <ul class="display-none" id="default-search-main">
   <li class="auto-suggestion-title"><a class="collection-item" href="#">
       <h6 class="search-title">FILES</h6>
     </a></li>
@@ -315,8 +315,8 @@
         </div>
       </div>
     </a></li>
-</ul>
-<ul class="display-none" id="page-search-title">
+</ul> --}}
+{{-- <ul class="display-none" id="page-search-title">
   <li class="auto-suggestion-title"><a class="collection-item" href="#">
       <h6 class="search-title">PAGES</h6>
     </a></li>
@@ -324,4 +324,4 @@
 <ul class="display-none" id="search-not-found">
   <li class="auto-suggestion"><a class="collection-item display-flex align-items-center" href="#"><span
         class="material-icons">error_outline</span><span class="member-info">No results found.</span></a></li>
-</ul>
+</ul> --}}
