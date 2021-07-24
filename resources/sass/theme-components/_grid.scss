@@ -2,12 +2,14 @@
   Grid 
 ------------------------------------------*/
 
+@use "sass:math";
+
 .section{
-	padding: $gutter-width / 3 0;
+	padding: math.div($gutter-width, 3) 0;
 }
 .row {
 	margin-bottom: 0;
   .col {    
-    padding: 0 $gutter-width / 1.5;
+    padding: 0 math.div($gutter-width, 1.5);
     }
 }
