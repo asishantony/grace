@@ -63,18 +63,22 @@ class ClientHomeController extends Controller
     }
     public function programmes()
     {
+        $school_data = SchoolDetails::get()->first()->toArray();
+
         $programmes = Programmes::where('status',1)->get();
-        return view('client.pages.programmes')->with('programmes',$programmes);
+        return view('client.pages.programmes',$school_data)->with('programmes',$programmes);
     }
     public function showProgram($id)
     {
+        $school_data = SchoolDetails::get()->first()->toArray();
         $program = Programmes::find($id);
-        return view('client.pages.program_show')->with('program',$program);
+        return view('client.pages.program_show',$school_data)->with('program',$program);
     }
     public function showAcademic($id)
     {
+        $school_data = SchoolDetails::get()->first()->toArray();
         $academic = Academics::find($id);
         $academics = Academics::select('id', 'name')->where('status',1)->get();
-        return view('client.pages.academic_show')->with('academic',$academic)->with('academics',$academics);
+        return view('client.pages.academic_show',$school_data)->with('academic',$academic)->with('academics',$academics);
     }
 }
