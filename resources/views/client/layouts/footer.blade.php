@@ -44,9 +44,11 @@
             </ul>
           </div> --}}
 
-          <div class="col-lg- col-md-6 footer-newsletter">
+          <div class="col-lg-6 col-md-6 footer-newsletter ">
             <h4>Reach Us</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1629.2723407995695!2d75.53314879749713!3d11.894406240334076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba431a6cbae4fdb%3A0xebdf27f95601cf19!2sGrace%20International%20School!5e1!3m2!1sen!2sin!4v1626542715556!5m2!1sen!2sin" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-responsive">
+             <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1629.2723407995695!2d75.53314879749713!3d11.894406240334076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba431a6cbae4fdb%3A0xebdf27f95601cf19!2sGrace%20International%20School!5e1!3m2!1sen!2sin!4v1626542715556!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
           </div>
 
         </div>
