@@ -56,7 +56,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({{asset('images/client/slide/slide-1.jpg')}})">
+        <div class="carousel-item active" style="background-image: url({{asset('images/client/slide/slide-1.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-2.jpg')}})">
+        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-2.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
@@ -76,7 +76,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.jpg')}})">
+        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
