@@ -14,6 +14,7 @@ class ClientHomeController extends Controller
 {
     public function view($page)
     {
+        $school_data = SchoolDetails::get()->first()->toArray();
         $titles = [
             'about'            => 'About Us',
             'vision'           => 'Our Vision',
@@ -25,10 +26,12 @@ class ClientHomeController extends Controller
             "chairman_message" => "Chairman's Message"
             ];
         $content = SchoolDetails::get($page)->first();
-        $data = [
+        $page_data = [
             'content' => $content[$page],
             'title'   => $titles[$page]
     ];
+       $data =  array_merge($page_data,$school_data);
+
         return view('client.pages.about',$data);
     }
 
