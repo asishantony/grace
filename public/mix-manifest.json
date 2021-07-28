@@ -110,6 +110,7 @@
     "/js/scripts/extra-components-sweetalert.js": "/js/scripts/extra-components-sweetalert.js",
     "/js/scripts/extra-components-tour.js": "/js/scripts/extra-components-tour.js",
     "/js/scripts/extra-components-treeview.js": "/js/scripts/extra-components-treeview.js",
+    "/js/scripts/facilities.js": "/js/scripts/facilities.js",
     "/js/scripts/form-editor.js": "/js/scripts/form-editor.js",
     "/js/scripts/form-elements.js": "/js/scripts/form-elements.js",
     "/js/scripts/form-file-uploads.js": "/js/scripts/form-file-uploads.js",

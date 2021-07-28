@@ -11,7 +11,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgrammesController;
 use App\Http\Controllers\AcademicController;
-// use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\FacilitiesController;
 
 
 /*
@@ -44,14 +44,6 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/news/toggle-status',[NewsController::class,'toggleStatus']);
     Route:: post('/admin/news/toggle-featured',[NewsController::class,'toggleFeatured']);
 
-    Route:: get('/admin/features/',[NewsController::class,'index']);
-    Route:: post('/admin/features/save',[NewsController::class,'store']);
-    Route:: get('/admin/features/{id}',[NewsController::class,'show']);
-    Route:: get('/admin/features/{id}/edit',[NewsController::class,'edit']);
-    Route:: put('/admin/features/{id}',[NewsController::class,'update']);
-    Route:: post('/admin/features/delete',[NewsController::class,'destroy']);
-    Route:: post('/admin/features/toggle-status',[NewsController::class,'toggleStatus']);
-    Route:: post('/admin/features/toggle-featured',[NewsController::class,'toggleFeatured']);
 
     Route:: get('/admin/album/',[AlbumController::class,'index']);
     Route:: post('/admin/album/save',[AlbumController::class,'store']);
@@ -66,7 +58,7 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/facilities/save',[FacilitiesController::class,'store']);
     Route:: get('/admin/facilities/{id}',[FacilitiesController::class,'show']);
     Route:: get('/admin/facilities/{id}/edit',[FacilitiesController::class,'edit']);
-    Route:: patch('/admin/facilities/{id}',[FacilitiesController::class,'update']);
+    Route:: put('/admin/facilities/{id}',[FacilitiesController::class,'update']);
     Route:: post('/admin/facilities/delete',[FacilitiesController::class,'destroy']);
     Route:: post('/admin/facilities/toggle-status',[FacilitiesController::class,'toggleStatus']);
     Route:: post('/admin/facilities/toggle-featured',[FacilitiesController::class,'toggleFeatured']);
