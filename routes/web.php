@@ -11,6 +11,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgrammesController;
 use App\Http\Controllers\AcademicController;
+// use App\Http\Controllers\FacilitiesController;
 
 
 /*
@@ -27,21 +28,30 @@ use App\Http\Controllers\AcademicController;
 // Page Route
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
-Route:: get('/programmes',[ClientHomeController::class,'programmes']);
-Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram']);
-Route:: get('/academics/{id}',[ClientHomeController::class,'showAcademic']);
+Route:: get('/programmes',[ClientHomeController::class,'programmes'])->name('programmes');
+Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram'])->name('showProgram');
+Route:: get('/academics/{id}',[ClientHomeController::class,'showAcademic'])->name('showAcademic');
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group
 Route::middleware(['web'])->group(function () {
-    Route:: get('/admin/news/',[NewsController::class,'index']);
+    Route:: get('/admin/news/',[NewsController::class,'index'])->name('admin_news');
     Route:: post('/admin/news/save',[NewsController::class,'store']);
     Route:: get('/admin/news/{id}',[NewsController::class,'show']);
     Route:: get('/admin/news/{id}/edit',[NewsController::class,'edit']);
-    Route:: patch('/admin/news/{id}',[NewsController::class,'update']);
+    Route:: put('/admin/news/{id}',[NewsController::class,'update']);
     Route:: post('/admin/news/delete',[NewsController::class,'destroy']);
     Route:: post('/admin/news/toggle-status',[NewsController::class,'toggleStatus']);
     Route:: post('/admin/news/toggle-featured',[NewsController::class,'toggleFeatured']);
+
+    Route:: get('/admin/features/',[NewsController::class,'index']);
+    Route:: post('/admin/features/save',[NewsController::class,'store']);
+    Route:: get('/admin/features/{id}',[NewsController::class,'show']);
+    Route:: get('/admin/features/{id}/edit',[NewsController::class,'edit']);
+    Route:: put('/admin/features/{id}',[NewsController::class,'update']);
+    Route:: post('/admin/features/delete',[NewsController::class,'destroy']);
+    Route:: post('/admin/features/toggle-status',[NewsController::class,'toggleStatus']);
+    Route:: post('/admin/features/toggle-featured',[NewsController::class,'toggleFeatured']);
 
     Route:: get('/admin/album/',[AlbumController::class,'index']);
     Route:: post('/admin/album/save',[AlbumController::class,'store']);
@@ -52,16 +62,16 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/album/toggle-status',[AlbumController::class,'toggleStatus']);
     Route:: post('/admin/album/toggle-featured',[AlbumController::class,'toggleFeatured']);
 
-    Route:: get('/admin/gallery/',[GalleryController::class,'index']);
-    Route:: post('/admin/gallery/save',[GalleryController::class,'store']);
-    Route:: get('/admin/gallery/{id}',[GalleryController::class,'show']);
-    Route:: get('/admin/gallery/{id}/edit',[GalleryController::class,'edit']);
-    Route:: patch('/admin/gallery/{id}',[GalleryController::class,'update']);
-    Route:: post('/admin/gallery/delete',[GalleryController::class,'destroy']);
-    Route:: post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
-    Route:: post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
+    Route:: get('/admin/facilities/',[FacilitiesController::class,'index'])->name('admin_facilities');
+    Route:: post('/admin/facilities/save',[FacilitiesController::class,'store']);
+    Route:: get('/admin/facilities/{id}',[FacilitiesController::class,'show']);
+    Route:: get('/admin/facilities/{id}/edit',[FacilitiesController::class,'edit']);
+    Route:: patch('/admin/facilities/{id}',[FacilitiesController::class,'update']);
+    Route:: post('/admin/facilities/delete',[FacilitiesController::class,'destroy']);
+    Route:: post('/admin/facilities/toggle-status',[FacilitiesController::class,'toggleStatus']);
+    Route:: post('/admin/facilities/toggle-featured',[FacilitiesController::class,'toggleFeatured']);
 
-    Route:: get('/admin/gallery/',[GalleryController::class,'index']);
+    Route:: get('/admin/gallery/',[GalleryController::class,'index'])->name('admin_gallery');
     Route:: post('/admin/gallery/save',[GalleryController::class,'store']);
     Route:: get('/admin/gallery/{id}',[GalleryController::class,'show']);
     Route:: get('/admin/gallery/{id}/edit',[GalleryController::class,'edit']);
@@ -70,17 +80,17 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/gallery/toggle-status',[GalleryController::class,'toggleStatus']);
     Route:: post('/admin/gallery/toggle-featured',[GalleryController::class,'toggleFeatured']);
 
-    Route:: get('/admin/programmes/',[ProgrammesController::class,'index']);
+    Route:: get('/admin/programmes/',[ProgrammesController::class,'index'])->name('admin_programmes');
     Route:: post('/admin/programmes/save',[ProgrammesController::class,'store']);
+    Route:: put('/admin/programmes/{id}',[ProgrammesController::class,'update']);
     Route:: get('/admin/programmes/{id}',[ProgrammesController::class,'show']);
     Route:: get('/admin/programmes/{id}/edit',[ProgrammesController::class,'edit']);
-    Route:: post('/admin/programmes/update',[ProgrammesController::class,'update']);
     Route:: post('/admin/programmes/delete',[ProgrammesController::class,'destroy']);
     Route:: post('/admin/programmes/toggle-status',[ProgrammesController::class,'toggleStatus']);
     Route:: post('/admin/programmes/toggle-featured',[ProgrammesController::class,'toggleFeatured']);
 
 
-    Route:: get('/admin/academics/',[AcademicController::class,'index']);
+    Route:: get('/admin/academics/',[AcademicController::class,'index'])->name('admin_academic');
     Route:: post('/admin/academics/save',[AcademicController::class,'store']);
     Route:: get('/admin/academics/{id}',[AcademicController::class,'show']);
     Route:: get('/admin/academics/{id}/edit',[AcademicController::class,'edit']);
@@ -100,8 +110,7 @@ Route::middleware(['web'])->group(function () {
 
     // locale route
     Route:: get('lang/{locale}', [LanguageController::class, 'swap']);
-    Route:: get('/admin/logout', [LogoutController::class, 'destroy'])
-                    ->name('logout');
+    Route:: get('/admin/logout', [LogoutController::class, 'destroy'])->name('logout');
     });
-Auth:: routes(['verify' => false]);
+    Auth:: routes(['verify' => false]);
 

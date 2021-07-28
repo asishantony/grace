@@ -36,6 +36,8 @@
       <div class="col s12">
         <div class="container">
           {{-- main page content --}}
+          @include('panels.alerts')
+
           @yield('content')
           {{-- right sidebar --}}
           {{-- @include('pages.sidebar.right-sidebar') --}}

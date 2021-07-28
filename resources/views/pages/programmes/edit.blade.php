@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}"> --}}
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/dropify/css/dropify.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/sweetalert/sweetalert.css')}}">
-{{-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 @endsection
@@ -33,8 +33,9 @@
     <div class="users-list-table">
         <div class="card">
             <div class="card-content">
-                <form  enctype="multipart/form-data" method="post" action="/admin/programmes/update"
+                <form  enctype="multipart/form-data" method="POST" action="/admin/programmes/{{$program->id}}"
                     >
+                   @method("PUT")
                     @csrf
                         <!-- form start -->
                     <div class="container">
@@ -97,11 +98,7 @@
 {{-- page scripts --}}
 @section('page-script')
 <script src="{{asset('js/scripts/page-users.js')}}"></script>
-<script>
-    drEvent.on('dropify.afterClear', function(event, element){
-    alert('File deleted');
-});
-</script>
+
 {{--
 <script src="{{asset('js/scripts/app-email.js')}}"></script> --}}
 <script src="{{asset('js/scripts/programmes.js')}}"></script>
