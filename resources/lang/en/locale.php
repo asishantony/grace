@@ -141,5 +141,6 @@ return [
     "Gallery"             => "Gallery",
     "Image"               => "Image",
     "Academics"           => "Academics",
+    "Facilities"          => "Facilities",
 ];
 ?>
