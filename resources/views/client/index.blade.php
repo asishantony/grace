@@ -41,7 +41,7 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="{{asset('images/client/logo.png')}}" alt="" class="img-fluid"></a>-->
 
-        @include('client.layouts.menu',['menuCheck'=>$menuCheck])
+        @include('client.layouts.menu')
       <!-- .navbar -->
 
     </div>
@@ -188,79 +188,30 @@
     @endif
 
     <!-- ======= Services Section ======= -->
+    @if(isset($facilities) && count($facilities) > 0)
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Facilities</h2>
           <p>Our Facilities</p>
         </div>
-
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f1.jpg')}}"/>
-              </div>
-              <h4><a href="">Library</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
+            @foreach($facilities as $facility)
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f2.jpg')}}"/>
-              </div>
-              <h4><a href="">Smart Classrooms</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="50">
+                <div class="icon-box">
+                <div class="imgbox">
+                    <img src="{{asset('storage/'.$facility->image)}}"/>
+                </div>
+                <h4><a href="">{{$facility->name}}</a></h4>
+                <a href="/facilities/{{$facility->id}}" class="btn-learn-more">Learn More</a>
+                </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f3.jpg')}}"/>
-              </div>
-              <h4><a href="">Open Stage</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f1.jpg')}}"/>
-              </div>
-              <h4><a href="">Library</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f2.jpg')}}"/>
-              </div>
-              <h4><a href="">Smart Classrooms</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f3.jpg')}}"/>
-              </div>
-              <h4><a href="">Open Stage</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
+            @endforeach
         </div>
-
       </div>
     </section><!-- End Services Section -->
+    @endif
 
 
 

@@ -8,6 +8,7 @@ use App\Models\NewsEvents;
 use App\Models\Programmes;
 use App\Models\Academics;
 use App\Models\Album;
+use App\Models\Facilities;
 use Carbon\Carbon;
 
 class ClientHomeController extends Controller
@@ -52,14 +53,14 @@ class ClientHomeController extends Controller
                         ->has('images')
                         ->take(3)
                         ->get();
-
-        $menuCheck =['gallery'=>count($albums)>0,'news' => count($news)>0,'academics'=>count($academics)>0];
+        $facilities = Facilities::where('status',1)->get();
+        // $menuCheck =['gallery'=>count($albums)>0,'news' => count($news)>0,'academics'=>count($academics)>0,'facilities'=>count($facilities)>0];
         // dd(count($albums),count($news),count($academics),$menuCheck);
         return view('client.index',$data)
                 ->with('news',$news)
                 ->with('academics',$academics)
-                ->with('albums',$albums)
-                ->with('menuCheck',$menuCheck);
+                ->with('facilities',$facilities)
+                ->with('albums',$albums);
     }
     public function programmes()
     {

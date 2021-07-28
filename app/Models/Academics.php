@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\NewsEvents;
 use App\Models\Album;
+use App\Models\Facilities;
 use Carbon\Carbon;
 class Academics extends Model
 {
@@ -21,7 +22,7 @@ class Academics extends Model
         ->where('status',1)
         ->where('due_date','>',Carbon::now()->format('Y-m-d'))
         ->count();
-    $academics = $this->select('id', 'name')->where('status',1)->count();
+    $academics = $this->where('status',1)->count();
     $albums = Album::with('images')
         ->select('id', 'name')
         ->where('featured',1)
@@ -29,6 +30,9 @@ class Academics extends Model
         ->has('images')
         ->take(3)
         ->count();
-        return ['gallery'=>$albums,'news' => $news,'academics'=>$academics];
+    $facility = Facilities::where('status',1)->count();
+    // dd($facility);
+
+        return ['gallery'=>$albums,'news' => $news,'academics'=>$academics,'facility'=>$facility];
     }
 }

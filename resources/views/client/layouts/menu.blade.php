@@ -26,7 +26,9 @@
       </li>
       @endif
       <li><a class="nav-link" href="/programmes">Programmes</a></li>
+      @if ($academics->menuCheck()['facility'])
       <li><a class="nav-link scrollto" href="/#services">Facilities</a></li>
+      @endif
       {{-- <li><a class="nav-link scrollto " href="#cta">Admission</a></li> --}}
       @if($academics->menuCheck()['news'])
       <li><a class="nav-link scrollto" href="/#testimonials">News and Events</a></li>
