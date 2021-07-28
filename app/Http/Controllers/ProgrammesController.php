@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Programmes;
 use Storage;
+use Illuminate\Support\Str;
+
 
 class ProgrammesController extends Controller
 {
@@ -51,7 +53,7 @@ class ProgrammesController extends Controller
             $imagePath = $request->file('image');
             $imageName = $imagePath->getClientOriginalName();
 
-            $path = $request->file('image')->storeAs('uploads/program/'.date('Y').'/'.date('M'), $imageName, 'public');
+            $path = $request->file('image')->storeAs('uploads/program/'.date('Y').'/'.date('M'), Str::uuid().$imageName, 'public');
         }
         $programmes = new Programmes;
         $programmes->name = $request->name;
@@ -82,7 +84,7 @@ class ProgrammesController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        // dd($id);
         //
         try {
             $data = Programmes::find($id);
@@ -130,10 +132,41 @@ class ProgrammesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-        //
-        dd($request->files->all());
+        // dd($request->all(),Programmes::find($id)->image);
+        $programmes = Programmes::find($id);
+        $currentImage = $programmes->image;
+        if ($request->file('image')) {
+            $imagePath = $request->file('image');
+            $imageName = $imagePath->getClientOriginalName();
+
+            $path = $request->file('image')->storeAs('uploads/program/'.date('Y').'/'.date('M'),Str::uuid().$imageName, 'public');
+            $programmes->image = $path;
+            if ($currentImage != "") {
+                //delete the current image
+                Storage::disk('public')->delete($currentImage);
+
+            }
+        }
+        $programmes->name = $request->name;
+        $programmes->description = $request->description;
+
+        try {
+            $programmes->save();
+            if ($programmes) {
+                return redirect()->route('admin_programmes')->with  ('success','Program Updated Successfully');
+
+
+            }else{
+                return redirect()->route('admin_programmes')->with('error','Program Updation failed');
+
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route('admin_programmes')->with('error','Program Updation failed');
+        }
+
+
     }
 
     /**
