@@ -7,10 +7,6 @@ $(document).ready(function () {
         },
     });
     $(".modal").modal();
-    // Close other sidenav on click of any sidenav
-    // if ($(window).width() > 900) {
-    //     $("#email-sidenav").removeClass("sidenav");
-    // }
     $(".datepicker").datepicker();
     $(".dropify").dropify();
     $("#news-table").DataTable({
@@ -59,46 +55,7 @@ $("#news-form").on("submit", function (e) {
         },
     });
 });
-function editSubmit() {
-    $("#edit-form").on("submit", function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        var id = $(this).data("id");
-        $.ajax({
-            type: "PATCH",
 
-            url: `/admin/news/${id}`,
-
-            data: formData,
-            processData: false,
-            contentType: false,
-
-            success: function (data) {
-                var result = JSON.parse(data);
-                if (result.success) {
-                    swal({
-                        title: result.message,
-                        icon: "success",
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    swal({
-                        title: result.message,
-                        icon: "error",
-                    });
-                }
-            },
-            error: function (data) {
-                var result = JSON.parse(data);
-                swal({
-                    title: "Error",
-                    icon: "error",
-                });
-            },
-        });
-    });
-}
 $("span.delete").on("click", function (e) {
     e.preventDefault();
     var id = $(this).data("id");
@@ -235,35 +192,35 @@ $(".view-news").on("click", function (e) {
         },
     });
 });
-$(".edit-news").on("click", function (e) {
-    var id = $(this).data("id");
-    $.ajax({
-        type: "GET",
-        url: `/admin/news/${id}/edit`,
+// $(".edit-news").on("click", function (e) {
+//     var id = $(this).data("id");
+//     $.ajax({
+//         type: "GET",
+//         url: `/admin/news/${id}/edit`,
 
-        success: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            if (result.success) {
-                $("#edit-modal").html(result.html);
-                $(".dropify").dropify();
-                $(".datepicker").datepicker();
-                editSubmit();
-                $("#edit-modal").modal("open");
-            } else {
-                swal({
-                    title: result.message,
-                    icon: "error",
-                });
-            }
-        },
-        error: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            // swal({
-            //     title: "Error",
-            //     icon: "error",
-            // });
-        },
-    });
-});
+//         success: function (data) {
+//             var result = JSON.parse(data);
+//             // console.log(result);
+//             if (result.success) {
+//                 $("#edit-modal").html(result.html);
+//                 $(".dropify").dropify();
+//                 $(".datepicker").datepicker();
+//                 editSubmit();
+//                 $("#edit-modal").modal("open");
+//             } else {
+//                 swal({
+//                     title: result.message,
+//                     icon: "error",
+//                 });
+//             }
+//         },
+//         error: function (data) {
+//             var result = JSON.parse(data);
+//             // console.log(result);
+//             // swal({
+//             //     title: "Error",
+//             //     icon: "error",
+//             // });
+//         },
+//     });
+// });

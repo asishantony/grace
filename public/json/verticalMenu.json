@@ -23,6 +23,13 @@
                     "icon": "domain"
                 },
                 {
+                    "url": "admin/facilities",
+                    "name": "Facilities",
+                    "i18n": "Facilities",
+                    "slug": "facilities",
+                    "icon": "domain"
+                },
+                {
                     "url": "admin/academics",
                     "name": "Academics",
                     "i18n": "Academics",

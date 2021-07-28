@@ -137,11 +137,11 @@
                 {{-- <td>{{$news->priority}}</td> --}}
                 <td style="cursor: pointer;">
                   @if ($news->featured == "1")
-                    <span class="chip green lighten-5 featured-change" data-id="{{$news->id}}>
+                    <span class="chip green lighten-5 featured-change" data-id="{{$news->id}}">
                      <span class="green-text">Featured</span>
                     </span>
                   @else
-                    <span class="chip red lighten-5 featured-change" data-id="{{$news->id}}>
+                    <span class="chip red lighten-5 featured-change" data-id="{{$news->id}}">
                       <span class="red-text">Not Featured</span>
                     </span>
                   @endif
@@ -156,8 +156,9 @@
                   </span>
                 @endif</td>
                 <td>
-                  <span style="cursor: pointer;" data-id="{{$news->id}}" class="edit-news"><i class="material-icons">edit</i></span>
-                  <span style="cursor: pointer;" data-id="{{$news->id}}"class="view-news"><i class="material-icons">remove_red_eye</i></span>
+                    <a href="/admin/news/{{$news->id}}/edit"><span style="cursor: pointer;" data-id="{{$news->id}}" class=""><i
+                        class="material-icons">edit</i></span></a>
+                        <span style="cursor: pointer;" data-id="{{$news->id}}"class="view-news"><i class="material-icons">remove_red_eye</i></span>
                   <span style="cursor: pointer;" data-id="{{$news->id}}" class="delete" data-id="{{$news->id}}"><i class="material-icons color-red">delete</i></span>
                 </td>
               </tr>

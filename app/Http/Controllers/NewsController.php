@@ -50,7 +50,7 @@ class NewsController extends Controller
             $imagePath = $request->file('image');
             $imageName = $imagePath->getClientOriginalName();
 
-            $path = $request->file('image')->storeAs('uploads', $imageName, 'public');
+            $path = $request->file('image')->storeAs('uploads/news/'.date('Y').'/'.date('M'),Str::uuid().$imageName, 'public');
         }
         $news = new NewsEvents;
         $news->heading = $request->heading;
@@ -112,26 +112,15 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
-        // dd($id);
-        try {
-            $data = NewsEvents::find($id);
-            // dd($data->toArray());
-            if ($data->count() > 0) {
-                // dd($data->toArray());
-                $html = view('pages.news.edit')->with('news',$data)->render();
-                $return_data = array("success"=>true, 'html'=>$html);
+        $data = NewsEvents::find($id);
+        $breadcrumbs = [
+            ['link' => "javascript:void(0)", 'name' => "Administration"],['link' => "/admin/news", 'name' => "News"], ['name'=>"Edit"]
+        ];
+        $pageConfigs = ['pageHeader' => true];
 
-            }else{
-                $return_data = array("success"=>false, "message"=>"No News Found");
-
-            }
-        } catch (\Throwable $th) {
-            //throw $th;
-            $return_data = array("success"=>false, "message"=>"Error in getting news data");
-        }
-
-        return json_encode($return_data);
+        return view('pages.news.edit', ['pageConfigs' => $pageConfigs],[
+            'breadcrumbs' => $breadcrumbs
+        ])->with('news',$data);
     }
 
     /**
@@ -141,26 +130,40 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NewsCreateRequest $request, $id)
+    public function update(Request $request, $id)
     {
+
+        // dd($request->all());
+        $news = NewsEvents::find($id);
+        $currentImage = $news->image;
+        if ($request->file('image')) {
+            $imagePath = $request->file('image');
+            $imageName = $imagePath->getClientOriginalName();
+
+            $path = $request->file('image')->storeAs('uploads/news/'.date('Y').'/'.date('M'),Str::uuid().$imageName, 'public');
+            $news->image = $path;
+            if ($currentImage != "") {
+                //delete the current image
+                Storage::disk('public')->delete($currentImage);
+
+            }
+        }
         $news->heading = $request->heading;
         $news->content = $request->content;
         $news->due_date= $request->due_date;
-        $news->image = $path;
-        $news->priority = NewsEvents::max('priority')+1;
         try {
             $news->save();
             if ($news) {
-                $return_data = array("success"=>true, "message"=>"News Added Successfully");
+                return redirect()->route('admin_news')->with  ('success','News Updated Successfully');
+
 
             }else{
-                $return_data = array("success"=>false, "message"=>"News Addition Failed");
+                return redirect()->route('admin_news')->with('error','News Updation failed');
 
             }
         } catch (\Throwable $th) {
-            $return_data = array("success"=>false, "message"=>"News Addition Failed");
+            return redirect()->route('admin_news')->with('error','News Updation failed');
         }
-        return json_encode($return_data);
     }
 
     /**
