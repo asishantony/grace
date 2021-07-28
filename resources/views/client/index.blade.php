@@ -204,7 +204,7 @@
                     <img src="{{asset('storage/'.$facility->image)}}"/>
                 </div>
                 <h4><a href="">{{$facility->name}}</a></h4>
-                <a href="/facilities/{{$facility->id}}" class="btn-learn-more">Learn More</a>
+                {{-- <a href="/facilities/{{$facility->id}}" class="btn-learn-more">Learn More</a> --}}
                 </div>
             </div>
             @endforeach
@@ -296,10 +296,10 @@
                   <span>Patron</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="mailto:fralexv@gmail.com"><i class="bi bi-envelope"></i></a>
+                  {{-- <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -314,10 +314,8 @@
                   <span>Governing Body Chairman</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                  <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
                 </div>
               </div>
             </div>
@@ -328,14 +326,12 @@
               <img src="{{asset('images/client/team/george.jpg')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Fr. George Painadathan</h4>
+                  <h4>Fr. George Painadath</h4>
                   <span>Governing Body Treasurer</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
                 </div>
               </div>
             </div>
@@ -349,10 +345,12 @@
                   <span>Manager</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -367,10 +365,12 @@
                   <span>Principal</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -386,10 +386,12 @@
                   <span>Associate Manager</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
