@@ -216,6 +216,20 @@
               </div>
               <div class="col s12">
                 <div class="input-field">
+                  <textarea class="materialize-textarea" id="patron_message" name="patron_message"
+                    placeholder="Vision" >{{$site_data["patron_message"]}}</textarea>
+                  <label for="patron_message">Patron's Message</label>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <textarea class="materialize-textarea" id="pri_message" name="principal_message"
+                    placeholder="Vision" >{{$site_data["principal_message"]}}</textarea>
+                  <label for="pri_message">Chairman's Message</label>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
                   <textarea class="materialize-textarea" id="chair_message" name="chairman_message"
                     placeholder="Vision" >{{$site_data["chairman_message"]}}</textarea>
                   <label for="chair_message">Chairman's Message</label>

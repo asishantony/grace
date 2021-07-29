@@ -86,13 +86,15 @@ class SiteSettingController extends Controller
         $settings->responsibility = $request->responsibility;
         $settings->accreditation = $request->accreditation;
         $settings->chairman_message = $request->chairman_message;
+        $settings->principal_message = $request->principal_message;
+        $settings->patron_message = $request->patron_message;
         $settings->save();
         if($settings)
         {
             $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
         }else {
             $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-            
+
         }
         return json_encode($return_data);
     }
@@ -120,12 +122,12 @@ class SiteSettingController extends Controller
                 $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
             }else {
                 $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-                
+
             }
          } catch (\Throwable $th) {
-            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed"); 
+            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
         }
-       
+
         return json_encode($return_data);
     }
     /**
@@ -146,17 +148,17 @@ class SiteSettingController extends Controller
         $settings->address = $request->address;
         try {
             $settings->save();
-            
+
             if($settings)
             {
                 $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
             }else {
                 $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-                
+
             }
         } catch (\Throwable $th) {
             // dd($th);
-            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed"); 
+            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
         }
         return json_encode($return_data);
     }

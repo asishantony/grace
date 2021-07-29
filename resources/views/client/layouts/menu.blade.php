@@ -9,7 +9,9 @@
           <li><a href="/page/rules">Rules and Regulations</a></li>
           <li><a href="/page/responsibility">Social Responsibility</a></li>
           <li><a href="/page/accreditation">Accreditation</a></li>
-          <li><a href="/page/chairman_message">Chairman's Message</a></li>
+          <li><a href="/message/patron">Patron's Message</a></li>
+          <li><a href="/message/chairman">Chairman's Message</a></li>
+          <li><a href="/message/principal">Principal's Message</a></li>
           <li><a href="/page/achievements">Achievements</a></li>
         </ul>
       </li>

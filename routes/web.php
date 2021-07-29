@@ -31,6 +31,7 @@ Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
 Route:: get('/programmes',[ClientHomeController::class,'programmes'])->name('programmes');
 Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram'])->name('showProgram');
 Route:: get('/academics/{id}',[ClientHomeController::class,'showAcademic'])->name('showAcademic');
+Route:: get('/message/{type}',[ClientHomeController::class,'showMessage'])->name('showMessage');
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group

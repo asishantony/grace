@@ -17,14 +17,16 @@ class ClientHomeController extends Controller
     {
         $school_data = SchoolDetails::get()->first()->toArray();
         $titles = [
-            'about'            => 'About Us',
-            'vision'           => 'Our Vision',
-            'mission'          => 'Our Mission',
-            'achievements'     => 'Achievements',
-            'rules'            => 'Rules and Regulations',
-            'responsibility'   => 'Social Responsibility',
-            'accreditation'    => 'Accreditation',
-            "chairman_message" => "Chairman's Message"
+            'about'             => 'About Us',
+            'vision'            => 'Our Vision',
+            'mission'           => 'Our Mission',
+            'achievements'      => 'Achievements',
+            'rules'             => 'Rules and Regulations',
+            'responsibility'    => 'Social Responsibility',
+            'accreditation'     => 'Accreditation',
+            "chairman_message"  => "Chairman's Message",
+            "principal_message" => "Principal's Message",
+            "patron_message"    => "Patron's Message"
             ];
         $content = SchoolDetails::get($page)->first();
         $page_data = [
@@ -81,5 +83,34 @@ class ClientHomeController extends Controller
         $academic = Academics::find($id);
         $academics = Academics::select('id', 'name')->where('status',1)->get();
         return view('client.pages.academic_show',$school_data)->with('academic',$academic)->with('academics',$academics);
+    }
+    public function showMessage($messageType)
+    {
+        $school_data = SchoolDetails::get()
+                                    ->first()
+                                    ->toArray();
+
+        $messages = [
+            'chairman' => [
+                'message' => $school_data['chairman_message'],
+                'title'   => "Chairman's Message",
+                'name'   => "Fr. Clarence Paliath",
+                'image'   => asset('images/client/team/clarance.png')
+            ],
+            'patron' => [
+                'message' => $school_data['patron_message'],
+                'title'   => "Patron's Message",
+                'name'   => "Rev.Dr. Alex Vadakkumthala",
+                'image'   => asset('images/client/team/bishop.png')
+            ],
+            'principal' => [
+                'message' => $school_data['principal_message'],
+                'title'   => "Principal's Message",
+                'name'   => "Ms. Ruth del Val Sanchez",
+                'image'   => asset('images/client/team/ruth.png'),
+            ],
+
+        ];
+        return view('client.pages.message',$school_data)->with('data',$messages[$messageType]);
     }
 }
