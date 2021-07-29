@@ -13,6 +13,7 @@ use Carbon\Carbon;
 
 class ClientHomeController extends Controller
 {
+
     public function view($page)
     {
         $school_data = SchoolDetails::get()->first()->toArray();
@@ -40,6 +41,10 @@ class ClientHomeController extends Controller
 
     public function home()
     {
+        $school_data = SchoolDetails::find(1);
+        if ($school_data->launch) {
+            return view('client.pages.coming');
+        }
 
         $data = SchoolDetails::get()->first()->toArray();
         $news= NewsEvents::orderBy('due_date','desc')
@@ -113,4 +118,21 @@ class ClientHomeController extends Controller
         ];
         return view('client.pages.message',$school_data)->with('data',$messages[$messageType]);
     }
+    public function launch()
+    {
+        $school_data = SchoolDetails::find(1);
+        if ($school_data->launch) {
+            $school_data->launch = false;
+            $school_data->save();
+            return view('client.pages.launch');
+        }else{
+            return redirect('');
+        }
+
+    }
+    public function launchButton()
+    {
+        return view('client.pages.count');
+    }
+
 }

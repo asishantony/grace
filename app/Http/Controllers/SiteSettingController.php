@@ -162,6 +162,27 @@ class SiteSettingController extends Controller
         }
         return json_encode($return_data);
     }
+    public function updateLaunch(Request $request)
+    {
+        $settings = SchoolDetails::find(1);
+
+        $settings->launch = $request->val == 'true' ? 1 : 0;
+        try {
+            $settings->save();
+
+            if($settings)
+            {
+                $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
+            }else {
+                $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
+
+            }
+        } catch (\Throwable $th) {
+            // dd($th);
+            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
+        }
+        return json_encode($return_data);
+    }
 
     /**
      * Remove the specified resource from storage.

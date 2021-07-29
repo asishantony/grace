@@ -28,6 +28,8 @@ use App\Http\Controllers\FacilitiesController;
 // Page Route
 // Route::get('/', [PageController::class, 'blankPage'])->middleware('verified');
 Route:: get('/', [ClientHomeController::class, 'home'])->name('home');
+Route:: get('/launch', [ClientHomeController::class, 'launch'])->name('launch');
+Route:: get('/launchButton', [ClientHomeController::class, 'launchButton'])->name('launchButton');
 Route:: get('/programmes',[ClientHomeController::class,'programmes'])->name('programmes');
 Route:: get('/programmes/{id}',[ClientHomeController::class,'showProgram'])->name('showProgram');
 Route:: get('/academics/{id}',[ClientHomeController::class,'showAcademic'])->name('showAcademic');
@@ -96,6 +98,7 @@ Route::middleware(['web'])->group(function () {
     Route:: post('/admin/site_settings/info/{id}',[SiteSettingController::class,'updateInfo']);
     Route:: post('/admin/site_settings/social/{id}',[SiteSettingController::class,'updateSocial']);
     Route:: post('/admin/site_settings/basic/{id}',[SiteSettingController::class,'updateBasic']);
+    Route:: post('/admin/site_settings/launch',[SiteSettingController::class,'updateLaunch']);
 
 
     Route:: get('/admin/dashboard', [PageController::class, 'blankPage']);
