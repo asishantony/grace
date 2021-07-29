@@ -7,6 +7,8 @@ use App\Models\NewsEvents;
 use App\Http\Requests\NewsCreateRequest;
 use File;
 use Storage;
+use Illuminate\Support\Str;
+
 
 class NewsController extends Controller
 {
