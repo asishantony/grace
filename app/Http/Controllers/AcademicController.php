@@ -49,10 +49,10 @@ class AcademicController extends Controller
         // dd($request->all());
         $academics               = new Academics;
         $academics->name         = $request->name;
-        $academics->description  = $request->description ;
-        $academics->organisation = $request->organisation;
-        $academics->objectives   = $request->objectives;
-        $academics->time_table   = $request->time;
+        $academics->description  = $request->description != '<p><br></p>' ? $request->description : "";
+        $academics->organisation = $request->organisation!= '<p><br></p>' ? $request->organisation : "";
+        $academics->objectives   = $request->objectives!= '<p><br></p>' ? $request->objectives : "";
+        $academics->time_table   = $request->time!= '<p><br></p>' ? $request->time : "";
         $academics->priority     = Academics::max('priority')+1;
         try {
             $academics->save();
@@ -105,7 +105,15 @@ class AcademicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Academics::find($id);
+        $breadcrumbs = [
+             ['link' => "javascript:void(0)", 'name' => "Administration"],['link' => "/admin/academics", 'name' => "Academics"], ['name'=>"Edit"]
+         ];
+         $pageConfigs = ['pageHeader' => true];
+ 
+         return view('pages.academics.edit', ['pageConfigs' => $pageConfigs],[
+             'breadcrumbs' => $breadcrumbs
+         ])->with('academic',$data);
     }
 
     /**
@@ -117,7 +125,25 @@ class AcademicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $academics               = Academics::find($id);
+        $academics->name         = $request->name;
+        $academics->description  = $request->description != '<p><br></p>' ? $request->description : "";
+        $academics->organisation = $request->organisation!= '<p><br></p>' ? $request->organisation : "";
+        $academics->objectives   = $request->objectives!= '<p><br></p>' ? $request->objectives : "";
+        $academics->time_table   = $request->time!= '<p><br></p>' ? $request->time : "";   
+        try {
+            $academics->save();
+            if($academics){
+                $return_data = array("success"=>true, "message"=>"Academics Updated Successfully");
+            }else {
+                $return_data = array("success"=>false, "message"=>"Academics Updation Failed");
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            $return_data = array("success"=>false, "message"=>"Academics Updation Failed");
+
+        }
+        return json_encode($return_data); 
     }
 
     /**
@@ -137,5 +163,25 @@ class AcademicController extends Controller
             $return_data = array("success"=>false, "message"=>"Academics Deletion Failed",'error'=> $th);
         }
         return json_encode($return_data);
+    }
+    public function toggleStatus(Request $request)
+    {
+        $id = $request->id;
+        $facility = Academics::find($id);
+        if ($facility->status) {
+            $facility->status = 0;
+        }else {
+            $facility->status = 1;
+        }
+        try {
+            $facility->save();
+            $return_data = array("success"=>true, "message"=>"Status Changed Successfully");
+
+        } catch (\Throwable $th) {
+            $return_data = array("success"=>true, "message"=>"Status Changing Failed");
+
+        }
+        return json_encode($return_data);
+
     }
 }

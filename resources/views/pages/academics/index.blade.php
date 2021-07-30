@@ -166,8 +166,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <span style="cursor: pointer" data-id="{{$academic->id}}" class="edit-academic"><i
-                                            class="material-icons">edit</i></span>
+                                    <a href="/admin/academics/{{$academic->id}}/edit"><span style="cursor: pointer;" data-id="{{$academic->id}}" class=""><i
+                                        class="material-icons">edit</i></span></a>
                                     <span style="cursor: pointer" data-id="{{$academic->id}}" class="view-academic"><i
                                             class="material-icons">remove_red_eye</i></span>
                                     <span style="cursor: pointer" data-id="{{$academic->id}}" class="delete"

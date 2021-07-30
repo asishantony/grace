@@ -97,11 +97,60 @@ $(document).ready(function () {
         modules: modules,
         theme: "snow",
     });
-
+    $("#edit-form").on("submit", function (e) {
+        e.preventDefault();
+        var data = new FormData();
+        var name = $("#name").val();
+        var academic_id = $("#academic_id").val();
+        var description = descriptionQuill.root.innerHTML;
+        var organisation = organisationQuill.root.innerHTML;
+        var objectives = objectivesQuill.root.innerHTML;
+        var time = timeQuill.root.innerHTML;
+        data.append("description", description);
+        data.append("organisation", organisation);
+        data.append("objectives", objectives);
+        data.append("time", time);
+        data.append("name", name);
+        data.append("_method", 'PUT');
+        $.ajax({
+            type: "POST",
+    
+            url: `/admin/academics/${academic_id}`,
+    
+            data: data,
+            processData: false,
+            contentType: false,
+    
+            success: function (data) {
+                var result = JSON.parse(data);
+                if (result.success) {
+                    swal({
+                        title: result.message,
+                        icon: "success",
+                    }).then(() => {
+                        location.replace('/admin/academics');
+                    });
+                } else {
+                    swal({
+                        title: result.message,
+                        icon: "error",
+                    });
+                }
+            },
+            error: function (data) {
+                var result = JSON.parse(data);
+                swal({
+                    title: "Error",
+                    icon: "error",
+                });
+            },
+        });
+    });
     $("#academic-form").on("submit", function (e) {
         e.preventDefault();
         var data = new FormData();
         var name = $("#name").val();
+        var academic_id = $("#academic_id").val();
         var description = descriptionQuill.root.innerHTML;
         var organisation = organisationQuill.root.innerHTML;
         var objectives = objectivesQuill.root.innerHTML;
@@ -147,46 +196,7 @@ $(document).ready(function () {
     });
 });
 
-function editSubmit() {
-    $("#edit-form").on("submit", function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
-        var id = $(this).data("id");
-        $.ajax({
-            type: "PUT",
 
-            url: `/admin/academic/${id}`,
-
-            data: formData,
-            processData: false,
-            contentType: false,
-
-            success: function (data) {
-                var result = JSON.parse(data);
-                if (result.success) {
-                    swal({
-                        title: result.message,
-                        icon: "success",
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    swal({
-                        title: result.message,
-                        icon: "error",
-                    });
-                }
-            },
-            error: function (data) {
-                var result = JSON.parse(data);
-                swal({
-                    title: "Error",
-                    icon: "error",
-                });
-            },
-        });
-    });
-}
 $("span.delete").on("click", function (e) {
     e.preventDefault();
     var id = $(this).data("id");
@@ -226,7 +236,7 @@ $(".status-change").on("click", function (e) {
     var id = $(this).data("id");
     $.ajax({
         type: "POST",
-        url: `/admin/academic/toggle-status`,
+        url: `/admin/academics/toggle-status`,
         data: { id: id },
 
         success: function (data) {
@@ -259,7 +269,7 @@ $(".featured-change").on("click", function (e) {
     var id = $(this).data("id");
     $.ajax({
         type: "POST",
-        url: `/admin/academic/toggle-featured`,
+        url: `/admin/academics/toggle-featured`,
         data: { id: id },
 
         success: function (data) {
@@ -293,7 +303,7 @@ $(".view-academic").on("click", function (e) {
     var id = $(this).data("id");
     $.ajax({
         type: "GET",
-        url: `/admin/academic/${id}`,
+        url: `/admin/academics/${id}`,
 
         success: function (data) {
             var result = JSON.parse(data);
@@ -306,38 +316,6 @@ $(".view-academic").on("click", function (e) {
                 // });
                 $("#show-modal").html(result.html);
                 $("#show-modal").modal("open");
-            } else {
-                swal({
-                    title: result.message,
-                    icon: "error",
-                });
-            }
-        },
-        error: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            // swal({
-            //     title: "Error",
-            //     icon: "error",
-            // });
-        },
-    });
-});
-$(".edit-academic").on("click", function (e) {
-    var id = $(this).data("id");
-    $.ajax({
-        type: "GET",
-        url: `/admin/academic/${id}/edit`,
-
-        success: function (data) {
-            var result = JSON.parse(data);
-            // console.log(result);
-            if (result.success) {
-                $("#edit-modal").html(result.html);
-                $(".dropify").dropify();
-                $(".datepicker").datepicker();
-                editSubmit();
-                $("#edit-modal").modal("open");
             } else {
                 swal({
                     title: result.message,

@@ -139,7 +139,7 @@
                 <button type="butoon" class="btn indigo waves-effect waves-light mr-2" id="basic-submit">
                   Save changes
                 </button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light mb-1">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light mb-1" id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
@@ -238,7 +238,7 @@
               <div class="col s12 display-flex justify-content-end form-action">
                 <button type="submit" class="btn indigo waves-effect waves-light mr-2" id="save-info">Save
                   changes</button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light ">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light " id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
@@ -289,7 +289,7 @@
               <div class="col s12 display-flex justify-content-end form-action">
                 <button type="submit" class="btn indigo waves-effect waves-light mr-2" id="social-submit">Save
                   changes</button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light" id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
