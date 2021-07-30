@@ -37,7 +37,7 @@ Route:: get('/message/{type}',[ClientHomeController::class,'showMessage'])->name
 Route:: get('/page/{slug}',[ClientHomeController::class,'view']);
 
 //Auth Middleware Group
-Route::middleware(['web'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route:: get('/admin/news/',[NewsController::class,'index'])->name('admin_news');
     Route:: post('/admin/news/save',[NewsController::class,'store']);
     Route:: get('/admin/news/{id}',[NewsController::class,'show']);
