@@ -243,7 +243,7 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
                 @foreach($albums as $album)
-              <li data-filter="{{'.'.$album->name}}">{{$album->name}}</li>
+              <li data-filter="{{'.'.Str::slug($album->name,'-')}}">{{$album->name}}</li>
               @endforeach
             </ul>
           </div>
@@ -252,7 +252,7 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         @foreach($albums as $album)
             @foreach($album->images as $image)
-            <div class="col-lg-4 col-md-6 portfolio-item {{$album->name}}">
+            <div class="col-lg-4 col-md-6 portfolio-item {{Str::slug($album->name,'-')}}">
                 <a href="{{asset('storage/'.$image->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$image->name}}"><img src="{{asset('storage/'.$image->url)}}" class="img-fluid" alt="{{$image->name}}"></a>
                 @if($image->name || $image->description)
                     <div class="portfolio-info">
