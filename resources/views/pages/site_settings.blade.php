@@ -225,7 +225,7 @@
                 <div class="input-field">
                   <textarea class="materialize-textarea" id="pri_message" name="principal_message"
                     placeholder="Vision" >{{$site_data["principal_message"]}}</textarea>
-                  <label for="pri_message">Chairman's Message</label>
+                  <label for="pri_message">Principal's Message</label>
                 </div>
               </div>
               <div class="col s12">
