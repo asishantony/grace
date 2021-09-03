@@ -42,10 +42,6 @@ class ClientHomeController extends Controller
     public function home()
     {
         $school_data = SchoolDetails::find(1);
-        if ($school_data->launch) {
-            return view('client.pages.coming');
-        }
-
         $data = SchoolDetails::get()->first()->toArray();
         $news= NewsEvents::orderBy('due_date','desc')
                             ->where('featured',1)
@@ -129,10 +125,6 @@ class ClientHomeController extends Controller
             return redirect('');
         }
 
-    }
-    public function launchButton()
-    {
-        return view('client.pages.count');
     }
 
 }

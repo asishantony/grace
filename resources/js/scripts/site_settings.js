@@ -169,5 +169,5 @@ $(document).ready(function () {
     });
     $(".cancel").on("click", function (e) {
         location.reload();
-    }
+    });
 });
