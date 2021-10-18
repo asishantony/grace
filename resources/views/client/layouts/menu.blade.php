@@ -37,7 +37,7 @@
       @endif
       @if($academics->menuCheck()['gallery'])
 
-      <li><a href="/#portfolio">Gallery</a></li>
+      <li><a href="/gallery">Gallery</a></li>
       @endif
       {{-- <li><a class="getstarted scrollto" href="#about">Contact Us</a></li> --}}
     </ul>
