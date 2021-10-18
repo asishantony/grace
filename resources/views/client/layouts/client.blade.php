@@ -26,10 +26,13 @@
   <link href="{{asset('vendors/client/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('vendors/client/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}">
+<link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
 
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/client/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/custom/custom.css')}}">
+
 
 </head>
 

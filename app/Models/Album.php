@@ -19,4 +19,8 @@ class Album extends Model
     {
         return $this->hasMany(Image::class);
     }
+    public function latestImage()
+    {
+    return $this->hasOne(Image::class)->latest();
+    }
 }
