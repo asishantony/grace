@@ -14,4 +14,14 @@ class NewsEvents extends Model
     {
        return Carbon::createFromFormat('Y-m-d',$value)->format('d-M-Y');
     }
+     /**
+     * Set the due date attribute.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setDueDateAttribute($value)
+    {
+        $this->attributes['due_date'] = Carbon::parse($value)->format('Y-m-d');
+    }
 }

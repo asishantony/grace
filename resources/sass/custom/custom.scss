@@ -9,3 +9,14 @@ NOTE:
 ------
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.gallery-wrap {
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-0.2rem);
+        box-shadow: 0 0.4rem 3.3rem rgb(0 0 0 / 30%);
+    }
+}

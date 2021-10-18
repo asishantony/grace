@@ -7,12 +7,19 @@
 {{-- vendor styles --}}
 @section('vendor-style')
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/select2/select2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('vendors/sweetalert/sweetalert.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('vendors/quill/quill.snow.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/select2/select2-materialize.css')}}">
 @endsection
 
 {{-- page style --}}
 @section('page-style')
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages/page-account-settings.css')}}">
+<style>
+    .quill-section{
+        padding-bottom: 25px;
+    }
+</style>
 @endsection
 
 {{-- page content --}}
@@ -73,31 +80,45 @@
               </div>
             </div>
           </div> --}}
-          <div class="divider mb-1 mt-1"></div>
-          <form class="formValidate" method="get">
+          {{-- <div class="divider mb-1 mt-1"></div> --}}
+          <form   id="basic-form">
             <div class="row">
-              <div class="col s12">
+              {{-- <div class="col s12">
                 <div class="input-field">
                   <label for="uname">Name>
                   <input type="text" id="uname" name="uname" value="hermione007" data-error=".errorTxt1">
                   <small class="errorTxt1"></small>
                 </div>
-              </div>
+              </div> --}}
               <div class="col s12">
                 <div class="input-field">
                   <label for="name">Name</label>
-                  <input id="name" name="name" type="text" value="Hermione Granger" data-error=".errorTxt2">
+                  <input id="name" name="name" type="text" value="{{$site_data['name']}}" data-error=".errorTxt2">
                   <small class="errorTxt2"></small>
                 </div>
               </div>
               <div class="col s12">
                 <div class="input-field">
                   <label for="email">E-mail</label>
-                  <input id="email" type="email" name="email" value="granger007@hogward.com" data-error=".errorTxt3">
+                  <input id="email" type="email" name="email" value="{{$site_data['email']}}" data-error=".errorTxt3">
                   <small class="errorTxt3"></small>
                 </div>
               </div>
               <div class="col s12">
+                <div class="input-field">
+                  <label for="phone1">Phone 1</label>
+                  <input id="phone1" type="text" name="phone1" value="{{$site_data['phone1']}}" data-error=".errorTxt3">
+                  <small class="errorTxt3"></small>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <label for="phone2">Phone 2</label>
+                  <input id="phone2" type="text" name="phone2" value="{{$site_data['phone2']}}" data-error=".errorTxt3">
+                  <small class="errorTxt3"></small>
+                </div>
+              </div>
+              {{-- <div class="col s12">
                 <div class="card-alert card orange lighten-5">
                   <div class="card-content orange-text">
                     <p>Your email is not confirmed. Please check your inbox.</p>
@@ -107,18 +128,18 @@
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-              </div>
+              </div> --}}
               <div class="col s12">
                 <div class="input-field">
-                  <input id="company" type="text">
-                  <label for="company">Company Name</label>
+                  <textarea class="materialize-textarea" id="address" name="address">{{$site_data['address']}}</textarea>
+                  <label for="address">Address</label>
                 </div>
               </div>
               <div class="col s12 display-flex justify-content-end form-action">
-                <button type="submit" class="btn indigo waves-effect waves-light mr-2">
+                <button type="butoon" class="btn indigo waves-effect waves-light mr-2" id="basic-submit">
                   Save changes
                 </button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light mb-1">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light mb-1" id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
@@ -128,6 +149,14 @@
         <div class="card-panel">
           <form class="infovalidate" id="info-form">
             <div class="row">
+              {{-- <div class="col s12">
+                <label for="editor">Vision</label>
+                <div id="about-us-quill">
+                    <div class="editor" id="quill_vision">
+                        {$site_data['vision']}
+                    </div>
+                </div>
+              </div> --}}
               <div class="col s12">
                 <div class="input-field">
                   <textarea class="materialize-textarea" id="vision" name="vision"
@@ -142,19 +171,34 @@
                   <label for="mission">Mission</label>
                 </div>
               </div>
-              <div class="col s12">
+              {{-- <div class="col s12">
                 <div class="input-field">
                   <textarea class="materialize-textarea" id="about" name="about"
                     placeholder="About Us" >{{$site_data["about"]}}</textarea>
                   <label for="about">About Us</label>
                 </div>
-              </div>
+              </div> --}}
               <div class="col s12">
-                <div class="input-field">
+                <label for="editor">About Us</label>
+                <div id="about-us-quill" class="quill-section">
+                    <div class="editor" id="quill_about">
+                        {!!$site_data['about']!!}
+                    </div>
+                </div>
+              </div>
+              <br>
+              <div class="col s12">
+                <label for="editor">Rules and Regulations</label>
+                <div id="rules-quill" class="quill-section">
+                    <div class="editor" id="quill_rules">
+                        {!!$site_data['rules']!!}
+                    </div>
+                </div>
+                {{-- <div class="input-field">
                   <textarea class="materialize-textarea" id="rules" name="rules"
                     placeholder="Rules and Regulations" >{{$site_data["rules"]}}</textarea>
                   <label for="rules">Rules and Regulations</label>
-                </div>
+                </div> --}}
               </div>
               <div class="col s12">
                 <div class="input-field">
@@ -172,6 +216,20 @@
               </div>
               <div class="col s12">
                 <div class="input-field">
+                  <textarea class="materialize-textarea" id="patron_message" name="patron_message"
+                    placeholder="Vision" >{{$site_data["patron_message"]}}</textarea>
+                  <label for="patron_message">Patron's Message</label>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <textarea class="materialize-textarea" id="pri_message" name="principal_message"
+                    placeholder="Vision" >{{$site_data["principal_message"]}}</textarea>
+                  <label for="pri_message">Principal's Message</label>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
                   <textarea class="materialize-textarea" id="chair_message" name="chairman_message"
                     placeholder="Vision" >{{$site_data["chairman_message"]}}</textarea>
                   <label for="chair_message">Chairman's Message</label>
@@ -180,7 +238,7 @@
               <div class="col s12 display-flex justify-content-end form-action">
                 <button type="submit" class="btn indigo waves-effect waves-light mr-2" id="save-info">Save
                   changes</button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light ">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light " id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
@@ -231,7 +289,7 @@
               <div class="col s12 display-flex justify-content-end form-action">
                 <button type="submit" class="btn indigo waves-effect waves-light mr-2" id="social-submit">Save
                   changes</button>
-                <button type="button" class="btn btn-light-pink waves-effect waves-light">Cancel</button>
+                <button type="button" class="btn btn-light-pink waves-effect waves-light" id="Cancel">Cancel</button>
               </div>
             </div>
           </form>
@@ -246,6 +304,9 @@
 @section('vendor-script')
 <script src="{{asset('vendors/select2/select2.full.min.js')}}"></script>
 <script src="{{asset('vendors/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('vendors/quill/quill.min.js')}}"></script>
+<script src="{{asset('vendors/sweetalert/sweetalert.min.js')}}"></script>
+
 @endsection
 
 {{-- page script --}}

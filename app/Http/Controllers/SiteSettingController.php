@@ -86,13 +86,15 @@ class SiteSettingController extends Controller
         $settings->responsibility = $request->responsibility;
         $settings->accreditation = $request->accreditation;
         $settings->chairman_message = $request->chairman_message;
+        $settings->principal_message = $request->principal_message;
+        $settings->patron_message = $request->patron_message;
         $settings->save();
         if($settings)
         {
             $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
         }else {
             $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-            
+
         }
         return json_encode($return_data);
     }
@@ -120,12 +122,12 @@ class SiteSettingController extends Controller
                 $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
             }else {
                 $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-                
+
             }
          } catch (\Throwable $th) {
-            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed"); 
+            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
         }
-       
+
         return json_encode($return_data);
     }
     /**
@@ -139,20 +141,45 @@ class SiteSettingController extends Controller
     {
         // dd($request->toArray());
         $settings = SchoolDetails::find($id);
-        $settings->vision = $request->vision;
-        $settings->mission = $request->mission;
-        $settings->about = $request->about;
-        $settings->rules = $request->rules;
-        $settings->responsibility = $request->responsibility;
-        $settings->accreditation = $request->accreditation;
-        $settings->chairman_message = $request->chairman_message;
-        $settings->save();
-        if($settings)
-        {
-            $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
-        }else {
+        $settings->name = $request->name;
+        $settings->email = $request->email;
+        $settings->phone1 = $request->phone1;
+        $settings->phone2 = $request->phone2;
+        $settings->address = $request->address;
+        try {
+            $settings->save();
+
+            if($settings)
+            {
+                $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
+            }else {
+                $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
+
+            }
+        } catch (\Throwable $th) {
+            // dd($th);
             $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
-            
+        }
+        return json_encode($return_data);
+    }
+    public function updateLaunch(Request $request)
+    {
+        $settings = SchoolDetails::find(1);
+
+        $settings->launch = $request->val == 'true' ? 1 : 0;
+        try {
+            $settings->save();
+
+            if($settings)
+            {
+                $return_data = array("success"=>true, "message"=>"Site Settings Updated Successfully");
+            }else {
+                $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
+
+            }
+        } catch (\Throwable $th) {
+            // dd($th);
+            $return_data = array("success"=>false, "message"=>"Site Settings Updation failed");
         }
         return json_encode($return_data);
     }

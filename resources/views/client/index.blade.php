@@ -14,7 +14,7 @@
   <link href="{{asset('images/client/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('vendors/client/animate.css/animate.min.css')}}" rel="stylesheet">
@@ -41,27 +41,8 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="{{asset('images/client/logo.png')}}" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li class="dropdown"><a href="#"><span>The School</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/page/about">About Us</a></li>
-              <li><a href="/page/rules">Rules and Regulations</a></li>
-              <li><a href="/page/responsibility">Social Responsibility</a></li>
-              <li><a href="/page/accreditation">Accreditation</a></li>
-              <li><a href="/page/chairman_message">Chairman's Message</a></li>
-              <li><a href="/page/achievements">Achievements</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#services">Facilities</a></li>
-          <li><a class="nav-link scrollto " href="#cta">Admission</a></li>
-          <li><a class="nav-link scrollto" href="#testimonials">News and Events</a></li>
-          <li><a href="#portfolio">Gallery</a></li>
-          <li><a class="getstarted scrollto" href="#about">Contact Us</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+        @include('client.layouts.menu')
+      <!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
@@ -75,7 +56,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({{asset('images/client/slide/slide-1.jpg')}})">
+        <div class="carousel-item active" style="background-image: url({{asset('images/client/slide/slide-1.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
@@ -85,7 +66,7 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-2.jpg')}})">
+        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-2.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
@@ -95,14 +76,14 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.jpg')}})">
+        {{-- <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
               <p class="animate__animated animate__fadeInUp">An initiative of the Roman Catholic Diocese of Kannur</p>
             </div>
           </div>
-        </div>
+        </div> --}}
 
       </div>
 
@@ -125,7 +106,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>About Grace International School</p>
+          <p>Grace International School</p>
         </div>
 
         <div class="row content">
@@ -133,7 +114,7 @@
             <img src="{{asset('images/client/about.jpg')}}" class="w-100"/>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>{{\Illuminate\Support\Str::limit($about,500)}} </p>
+            <p>{!!\Illuminate\Support\Str::limit($about,500)!!} </p>
             <a href="/page/about" class="btn-learn-more">Learn More</a>
           </div>
         </div>
@@ -150,7 +131,7 @@
           <div class="col-lg-6 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box greendk">
               <h3><strong>OUR VISION</strong> </h3>
-              <p class="pt-0">{{$vision}}
+              <p class="pt-0">{!!$vision!!}
               </p>
               <a href="{{'/page/vision'}}">Read more &raquo;</a>
             </div>
@@ -171,6 +152,7 @@
     </section><!-- End Counts Section -->
 
      <!-- ======= Testimonials Section ======= -->
+     @if(count($news) > 0)
      <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -181,86 +163,21 @@
 
         <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+            @foreach ($news as $news_item)
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="{{asset('images/client/news1.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
+                  <img src="{{asset('storage/'.$news_item->image)}}" class="testimonial-img" alt="{{$news_item->heading}}">
+                  <h3>{{$news_item->heading}}</h3>
+                  {{-- <h4>{{$news_item->due_date}}</h4> --}}
                   <p>
-                    
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                   
+                    {{$news_item->content}}
                   </p>
                   <a href="#">Read more &raquo;</a>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news2.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news3.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news1.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{{asset('images/client/news2.jpg')}}" class="testimonial-img" alt="">
-                  <h3>News Headline</h3>
-                  <h4>20 May 2021</h4>
-                  <p>
-                    
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                   
-                  </p>
-                  <a href="#">Read more &raquo;</a>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
+            @endforeach
 
           </div>
           <div class="swiper-pagination"></div>
@@ -268,84 +185,35 @@
 
       </div>
     </section><!-- End Testimonials Section -->
-
+    @endif
 
     <!-- ======= Services Section ======= -->
+    @if(isset($facilities) && count($facilities) > 0)
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Facilities</h2>
           <p>Our Facilities</p>
         </div>
-
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f1.jpg')}}"/>
-              </div>
-              <h4><a href="">Library</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
+            @foreach($facilities as $facility)
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f2.jpg')}}"/>
-              </div>
-              <h4><a href="">Smart Classrooms</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="50">
+                <div class="icon-box">
+                <div class="imgbox">
+                    <img src="{{asset('storage/'.$facility->image)}}"/>
+                </div>
+                <h4><a href="">{{$facility->name}}</a></h4>
+                {{-- <a href="/facilities/{{$facility->id}}" class="btn-learn-more">Learn More</a> --}}
+                </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f3.jpg')}}"/>
-              </div>
-              <h4><a href="">Open Stage</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f1.jpg')}}"/>
-              </div>
-              <h4><a href="">Library</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f2.jpg')}}"/>
-              </div>
-              <h4><a href="">Smart Classrooms</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="imgbox">
-                <img src="{{asset('images/client/f3.jpg')}}"/>
-              </div>
-              <h4><a href="">Open Stage</a></h4>
-              <a href="#" class="btn-learn-more">Learn More</a>
-            </div>
-          </div>
-
+            @endforeach
         </div>
-
       </div>
     </section><!-- End Services Section -->
+    @endif
 
-   
+
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta" >
@@ -361,6 +229,7 @@
     </section><!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
+    @if(count($albums) > 0)
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
@@ -373,78 +242,39 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".school">School Environment</li>
-              <li data-filter=".filter-facilities">Facilities</li>
+                @foreach($albums as $album)
+              <li data-filter="{{'.'.Str::slug($album->name,'-')}}">{{$album->name}}</li>
+              @endforeach
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4 col-md-6 portfolio-item school">
-            <img src="{{asset('images/client/news1.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Auditorium</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/news1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1   "><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        @foreach($albums as $album)
+            @foreach($album->images as $image)
+            <div class="col-lg-4 col-md-6 portfolio-item {{Str::slug($album->name,'-')}}">
+                <a href="{{asset('storage/'.$image->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$image->name}}"><img src="{{asset('storage/'.$image->url)}}" class="img-fluid" alt="{{$image->name}}"></a>
+                @if($image->name || $image->description)
+                    <div class="portfolio-info">
+                        @if($image->name)
+                        <h4>{{$image->name}}</h4>
+                        @endif
+                        @if($image->description)
+                            <p>{{$image->description}}</p>
+                        @endif
+                    {{-- <a href="{{asset('images/client/news1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1   "><i class="bx bx-plus"></i></a>
+                    <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a> --}}
+                    </div>
+                @endif
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities school">
-            <img src="{{asset('images/client/f1.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Test</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f1.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item school">
-            <img src="{{asset('images/client/news2.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/news2.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities">
-            <img src="{{asset('images/client/f3.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f3.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-school">
-            <img src="{{asset('images/client/news3.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href="{{asset('images/client/news3.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-facilities">
-            <img src="{{asset('images/client/f2.jpg')}}" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Name</h4>
-              <p>Detail</p>
-              <a href="{{asset('images/client/f2.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="name"><i class="bx bx-plus"></i></a>
-              <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
+            @endforeach
+          @endforeach
 
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
+    @endif
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -466,32 +296,15 @@
                   <span>Patron</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href="mailto:fralexv@gmail.com"><i class="bi bi-envelope"></i></a>
+                  {{-- <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{{asset('images/client/team/fr_devassy.png')}}" class="img-fluid" alt="" loading="lazy">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Fr.Devassy Eerathara</h4>
-                  <span>Governing Body Member</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
               <img src="{{asset('images/client/team/clarance.png')}}" class="img-fluid" alt="" loading="lazy">
@@ -501,10 +314,8 @@
                   <span>Governing Body Chairman</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                  <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
                 </div>
               </div>
             </div>
@@ -515,14 +326,12 @@
               <img src="{{asset('images/client/team/george.jpg')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Fr. George Painadathan</h4>
+                  <h4>Fr. George Painadath</h4>
                   <span>Governing Body Treasurer</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
                 </div>
               </div>
             </div>
@@ -536,10 +345,12 @@
                   <span>Manager</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -550,14 +361,16 @@
               <img src="{{asset('images/client/team/ruth.png')}}" class="img-fluid" alt="" loading="lazy">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sr. Ruth</h4>
+                  <h4>Ms. Ruth del Val Sanchez</h4>
                   <span>Principal</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -573,10 +386,12 @@
                   <span>Associate Manager</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href="mailto:fr.paliath@gmail.com"><i class="bi bi-envelope"></i></a>
+                    <a href="tel:9447248981"><i class="bi bi-phone"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -632,8 +447,8 @@
               <option value="other">III</option>
             </select>
             </div>
-          
-         
+
+
           <div class="form-group">
             <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
           </div>
@@ -644,7 +459,7 @@
     </div>
     </section><!-- End Pricing Section --> --}}
 
-
+    >
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
       <div class="container" data-aos="fade-up">
@@ -670,14 +485,14 @@
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>{{$email}}</p>
+                  <p><a href="mailto:{{$email}}">{{$email}}</a></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Us</h3>
-                  <p>{{$phone1}}<br>{{$phone2}}</p>
+                  <p><a href="tel:{{$phone1}}">{{$phone1}}</a><br><a href="tel:{{$phone2}}">{{$phone2}}</a></p>
                 </div>
               </div>
             </div>
@@ -717,75 +532,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-info">
-              <h3><img src="{{asset('images/client/logo.png')}}"/></h3>
-                            <p>
-                              Valayal ,Keezhallur - 670612<br>
-
-                              Kannur ,kerala ,india<br>
-                              
-                              5km from Kannur Airport<br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          {{-- <div class="col-lg-2 col-md-6 footer-links">
-            <h4></h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div> --}}
-
-          <div class="col-lg- col-md-6 footer-newsletter">
-            <h4>Reach Us</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1368699652567!2d75.52450951481111!3d11.895556391568164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba43aa0913a4ad7%3A0x11af6eb21f713752!2sGrace%20International%20School!5e0!3m2!1sen!2sin!4v1621838755533!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Grace International School</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        
-        Designed by <a href="https://bootstrapmade.com/"></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+ @include("client.layouts.footer")
 
   <!-- <div id="preloader"></div> -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

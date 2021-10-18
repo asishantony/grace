@@ -11,7 +11,7 @@
 
       & > a,
       & > span {
-        padding: (($dropdown-item-height - 22) / 2) 24px;
+        padding: (($dropdown-item-height - 22) * 0.5) 24px;
          &:hover,
          &.active {            
             background-color: $dropdown-hover-bg-color;            

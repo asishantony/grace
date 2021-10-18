@@ -2,7 +2,7 @@
 @extends('layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Blank Page')
+@section('title','Dashboard')
 
 {{-- page content --}}
 @section('content')
@@ -10,9 +10,14 @@
     <div class="card">
         <div class="card-content">
             <p class="caption mb-0">
-                Sample blank page for getting start!! Created and designed by Google, Material Design is a design
-                language that combines the classic principles of successful design along with innovation and
-                technology.
+                <p>
+                    <label>
+                      <input type="checkbox" id="launch-switch" @if ($launch) checked @endif />
+                      <span>Launch</span>
+                    </label>
+                  </p>
+               <input type="checkbox" name="launch-switch" id="launch-switch" @if ($launch) checked @endif>
+
             </p>
         </div>
     </div>

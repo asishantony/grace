@@ -46,6 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="col s12">
       <div class="container">
         <!--  main content -->
+        @include('panels.alerts')
         @yield('content')
       </div>
       {{-- overlay --}}
