@@ -13,3 +13,4 @@ supervisord.log
 supervisord.pid
 public/storage/
 public/index.php
+server.phpunit
