@@ -48,12 +48,7 @@ class GalleryController extends Controller
     {
         //
         $files = [];
-        foreach ($request->file('image') as $image) {
-            $imagePath = $image;
-            $imageName = $imagePath->getClientOriginalName();
-            $files[] = $imageName;
-        }
-        return json_encode($files);
+
         $sucess_count = 0;
         $failed_count = 0;
         if ($request->file('image')) {
@@ -93,10 +88,12 @@ class GalleryController extends Controller
                     $failed_count = $failed_count + 1;
                 }
             }
-            if ($sucess_count > 0) {
-                $return_data = array("success" => true, "message" => "Image Uploaded Successfully");
+            if ($sucess_count == count($files)) {
+                $return_data = array("success" => true, "message" => "All Images Uploaded Successfully");
+            } else if ($sucess_count > 0 && $failed_count > 0) {
+                $return_data = array("success" => false, "message" => "Some Images Uploaded Successfully and Some Failed");
             } else {
-                $return_data = array("success" => false, "message" => "Image Upload Failed");
+                $return_data = array("success" => false, "message" => "All Images Upload Failed");
             }
             return json_encode($return_data);
         }
