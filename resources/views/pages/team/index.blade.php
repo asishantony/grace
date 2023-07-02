@@ -2,7 +2,7 @@
 @extends('layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Facilities')
+@section('title','Team')
 
 {{-- vendor styles --}}
 @section('vendor-style')
@@ -175,7 +175,7 @@
 <div id="modal1" class="modal">
     <form class="" id="teams-form" name="teams-form" enctype="multipart/form-data">
         <div class="modal-content">
-            <h4>Add Facility</h4>
+            <h4>Add Team</h4>
             <!-- form start -->
 
             <div class="input-field">
