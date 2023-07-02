@@ -288,8 +288,8 @@
           @foreach($teams as $team)
           <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="{{$team->name}}" loading="lazy">
-              <img src="{{asset('storage/'.$facility->image)}}" class="img-fluid" loading="lazy" alt="{{$team->name}}"/>
+              <!-- <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="{{$team->name}}" loading="lazy"> -->
+              <img src="{{asset('storage/'.$team->image)}}" class="img-fluid" loading="lazy" alt="{{$team->name}}"/>
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>{{$team->name}}</h4>
