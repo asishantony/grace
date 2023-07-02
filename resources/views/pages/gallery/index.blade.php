@@ -218,7 +218,7 @@
                 <p>Image</p>
               </div>
               <!-- <input type="file" name="image[]" id="image" class="dropify" multiple> -->
-             <input type="file" name="image[]" id="image" class="" data-default-file="" name="file"/> 
+             <input type="file" name="image[]" id="image" class="" title="Image" multiple/> 
             </div>
 
 
