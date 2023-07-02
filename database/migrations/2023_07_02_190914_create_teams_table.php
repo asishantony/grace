@@ -16,7 +16,7 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('designation'); // (Principal, Vice Principal, Teacher, Staff, etc.
+            $table->string('designation')->nullable(); // (Principal, Vice Principal, Teacher, Staff, etc.
             $table->text('description');
             $table->text('image');
             $table->integer('priority');
