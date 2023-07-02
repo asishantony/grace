@@ -91,7 +91,7 @@ class GalleryController extends Controller
             if ($sucess_count == count($files)) {
                 $return_data = array("success" => true, "message" => "All Images Uploaded Successfully");
             } else if ($sucess_count > 0 && $failed_count > 0) {
-                $return_data = array("success" => false, "message" => "Some Images Uploaded Successfully and Some Failed");
+                $return_data = array("success" => true, "message" => "Some Images Uploaded Successfully and Some Failed");
             } else {
                 $return_data = array("success" => false, "message" => "All Images Upload Failed");
             }

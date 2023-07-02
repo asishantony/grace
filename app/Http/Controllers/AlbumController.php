@@ -143,7 +143,12 @@ class AlbumController extends Controller
     {
         //
         try{
+            //delete images
+            $album_data = Album::find($request->id);
+            $album_data->images()->delete();
+            
             $album_data = Album::destroy($request->id);
+            
             $return_data = array("success"=>true, "message"=>"Album Deleted Successfully");
         } catch (\Throwable $th) {
             // dd($th);
