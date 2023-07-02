@@ -76,14 +76,14 @@
         </div>
 
         <!-- Slide 3 -->
-        {{-- <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.webp')}})">
+        <!-- {{-- <div class="carousel-item" style="background-image: url({{asset('images/client/slide/slide-3.webp')}})">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Grace International School</span></h2>
               <p class="animate__animated animate__fadeInUp">An initiative of the Roman Catholic Diocese of Kannur</p>
             </div>
           </div>
-        </div> --}}
+        </div> --}} -->
 
       </div>
 
@@ -111,7 +111,7 @@
 
         <div class="row content">
           <div class="col-lg-6">
-            <img src="{{asset('images/client/about.jpg')}}" class="w-100"/>
+            <img src="{{asset('images/client/about.jpg')}}" class="w-100" loading="lazy"/>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>{!!\Illuminate\Support\Str::limit($about,500)!!} </p>
@@ -167,7 +167,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="{{asset('storage/'.$news_item->image)}}" class="testimonial-img" alt="{{$news_item->heading}}">
+                  <img src="{{asset('storage/'.$news_item->image)}}" class="testimonial-img" alt="{{$news_item->heading}}" loading="lazy">
                   <h3>{{$news_item->heading}}</h3>
                   {{-- <h4>{{$news_item->due_date}}</h4> --}}
                   <p>
@@ -201,7 +201,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="50">
                 <div class="icon-box">
                 <div class="imgbox">
-                    <img src="{{asset('storage/'.$facility->image)}}"/>
+                    <img src="{{asset('storage/'.$facility->image)}}" loading="lazy"/>
                 </div>
                 <h4><a href="">{{$facility->name}}</a></h4>
                 {{-- <a href="/facilities/{{$facility->id}}" class="btn-learn-more">Learn More</a> --}}
@@ -253,7 +253,7 @@
         @foreach($albums as $album)
             @foreach($album->images as $image)
             <div class="col-lg-4 col-md-6 portfolio-item {{Str::slug($album->name,'-')}}">
-                <a href="{{asset('storage/'.$image->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$image->name}}"><img src="{{asset('storage/'.$image->url)}}" class="img-fluid" alt="{{$image->name}}"></a>
+                <a href="{{asset('storage/'.$image->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{$image->name}}"><img src="{{asset('storage/'.$image->url)}}" class="img-fluid" alt="{{$image->name}}" loading="lazy"></a>
                 @if($image->name || $image->description)
                     <div class="portfolio-info">
                         @if($image->name)
@@ -275,9 +275,44 @@
       </div>
     </section><!-- End Portfolio Section -->
     @endif
+  <!-- ======= Team Section ======= -->
+  @if(count($teams) > 0)
+  <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
 
+        <div class="section-title">
+          <h2>Administration & Staff</h2>
+          <p>Our Team</p>
+        </div>
+        <div class="row">
+          @foreach($teams as $team)
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="{{$team->name}}" loading="lazy">
+              <img src="{{asset('storage/'.$facility->image)}}" class="img-fluid" loading="lazy" alt="{{$team->name}}"/>
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>{{$team->name}}</h4>
+                  <span>{{$team->description}}</span>
+                </div>
+                <!-- <div class="social">
+                  <a href="mailto:fralexv@gmail.com"><i class="bi bi-envelope"></i></a>
+                  {{-- <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
+                </div> -->
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+
+      </div>
+    </section>
+    @endif
+    <!-- End Team Section -->
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <!-- <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -399,7 +434,8 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section> -->
+    <!-- End Team Section -->
 
     {{-- <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
