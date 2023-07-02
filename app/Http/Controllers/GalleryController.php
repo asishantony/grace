@@ -46,6 +46,7 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         //
+        return($request->all());
         if ($request->file('image')) {
             $imagePath = $request->file('image');
             $imageName = $imagePath->getClientOriginalName();
