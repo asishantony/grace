@@ -27,6 +27,8 @@ class SchoolDataSeeder extends Seeder
             'accreditation'    => 'Lorem Ipsum, Lorem Ipsum',
             'chairman_message' => 'Lorem Ipsum, Lorem Ipsum',
             'achievements'     => 'Lorem Ipsum, Lorem Ipsum',
+            'principal_message'=> 'Lorem Ipsum, Lorem Ipsum',
+            'patron_message'   => 'Lorem Ipsum, Lorem Ipsum',
             'address'          => 'Lorem Ipsum, Lorem Ipsum',
             'phone1'           => '8281360978',
             'phone2'           => '',

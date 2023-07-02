@@ -30,6 +30,13 @@
                     "icon": "domain"
                 },
                 {
+                    "url": "admin/teams",
+                    "name": "Teams",
+                    "i18n": "Teams",
+                    "slug": "teams",
+                    "icon": "domain"
+                },
+                {
                     "url": "admin/academics",
                     "name": "Academics",
                     "i18n": "Academics",

@@ -12,7 +12,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgrammesController;
 use App\Http\Controllers\AcademicController;
 use App\Http\Controllers\FacilitiesController;
-
+use App\Http\Controllers\TeamsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +68,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/facilities/delete', [FacilitiesController::class, 'destroy']);
     Route::post('/admin/facilities/toggle-status', [FacilitiesController::class, 'toggleStatus']);
     Route::post('/admin/facilities/toggle-featured', [FacilitiesController::class, 'toggleFeatured']);
+
+    Route::get('/admin/teams/', [TeamsController::class, 'index'])->name('admin_teams');
+    Route::post('/admin/teams/save', [TeamsController::class, 'store']);
+    Route::get('/admin/teams/{id}', [TeamsController::class, 'show']);
+    Route::get('/admin/teams/{id}/edit', [TeamsController::class, 'edit']);
+    Route::put('/admin/teams/{id}', [TeamsController::class, 'update']);
+    Route::post('/admin/teams/delete', [TeamsController::class, 'destroy']);
+    Route::post('/admin/teams/toggle-status', [TeamsController::class, 'toggleStatus']);
+    Route::post('/admin/teams/toggle-featured', [TeamsController::class, 'toggleFeatured']);
 
     Route::get('/admin/gallery/', [GalleryController::class, 'index'])->name('admin_gallery');
     Route::post('/admin/gallery/save', [GalleryController::class, 'store']);
