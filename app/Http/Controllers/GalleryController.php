@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Album;
 use Storage;
+
 class GalleryController extends Controller
 {
     /**
@@ -16,15 +17,15 @@ class GalleryController extends Controller
     public function index()
     {
         $gallery_images = Image::with('albums:id,name')->get()->toArray();
-        $albums = Album::select('id','name')->orderBy('name')->get();
+        $albums = Album::select('id', 'name')->orderBy('name')->get();
         $breadcrumbs = [
-            ['link' => "javascript:void(0)", 'name' => "Gallery"], ['name'=>"Image"]
+            ['link' => "javascript:void(0)", 'name' => "Gallery"], ['name' => "Image"]
         ];
         $pageConfigs = ['pageHeader' => true];
 
-        return view('pages.gallery.index', ['pageConfigs' => $pageConfigs],[
+        return view('pages.gallery.index', ['pageConfigs' => $pageConfigs], [
             'breadcrumbs' => $breadcrumbs
-        ])->with('gallery_images',$gallery_images)->with('albums',$albums);
+        ])->with('gallery_images', $gallery_images)->with('albums', $albums);
     }
 
     /**
@@ -46,36 +47,59 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         //
-        return($request->file('image'));
-        if ($request->file('image')) {
-            $imagePath = $request->file('image');
+        $files = [];
+        foreach ($request->file('image') as $image) {
+            $imagePath = $image;
             $imageName = $imagePath->getClientOriginalName();
-
-            $path = $request->file('image')->storeAs('uploads/gallery/'.date('Y').'/'.date('M'), $imageName, 'public');
+            $files[] = $imageName;
         }
-        $gallery = new Image;
-        $gallery->name = $request->name;
-        $gallery->album_id = $request->album_id;
-        $gallery->description = $request->description;
-        $gallery->status = 1;
-        $gallery->featured = 1;
-        $gallery->url = $path;
-        try {
-            $gallery->save();
-            if ($gallery) {
-                $return_data = array("success"=>true, "message"=>"Image Added Successfully");
-
-            }else{
-                $this->removeImage('/storage/'.$path);
-                $return_data = array("success"=>false, "message"=>"Image Addition Failed");
-
+        return json_encode($files);
+        $sucess_count = 0;
+        $failed_count = 0;
+        if ($request->file('image')) {
+            foreach ($request->file('image') as $image) {
+                $imagePath = $image;
+                $imageName = $imagePath->getClientOriginalName();
+                $imageName = time() . '_' . $imageName;
+                $path = $image->storeAs('uploads/gallery/' . date('Y') . '/' . date('M'), $imageName, 'public');
+                $files[] = $path;
             }
-        } catch (\Throwable $th) {
-            dd($th);
-            $this->removeImage('/storage/'.$path);
-            $return_data = array("success"=>false, "message"=>"Image Addition Failed");
+
+            // if ($request->file('image')) {
+            //     $imagePath = $request->file('image');
+            //     $imageName = $imagePath->getClientOriginalName();
+
+            //     $path = $request->file('image')->storeAs('uploads/gallery/'.date('Y').'/'.date('M'), $imageName, 'public');
+            // }
+            foreach ($files as $path) {
+                $gallery = new Image;
+                $gallery->name = $request->name;
+                $gallery->album_id = $request->album_id;
+                $gallery->description = $request->description;
+                $gallery->status = 1;
+                $gallery->featured = 1;
+                $gallery->url = $path;
+                try {
+                    $gallery->save();
+                    if ($gallery) {
+
+                        $sucess_count = $sucess_count + 1;
+                    } else {
+                        $this->removeImage('/storage/' . $path);
+                        $failed_count = $failed_count + 1;
+                    }
+                } catch (\Throwable $th) {
+                    $this->removeImage('/storage/' . $path);
+                    $failed_count = $failed_count + 1;
+                }
+            }
+            if ($sucess_count > 0) {
+                $return_data = array("success" => true, "message" => "Image Uploaded Successfully");
+            } else {
+                $return_data = array("success" => false, "message" => "Image Upload Failed");
+            }
+            return json_encode($return_data);
         }
-        return json_encode($return_data);
     }
 
     /**
@@ -122,15 +146,13 @@ class GalleryController extends Controller
     {
         //
         try {
-        $image = Image::find($request->id);
-        $this->removeImage($image->url);
-        $deleteStatus = Image::destroy($request->id);
-        $return_data = array("success"=>true, "message"=>"Image Deleted Successfully");
-
-        }
-        catch (\Throwable $th) {
+            $image = Image::find($request->id);
+            $this->removeImage($image->url);
+            $deleteStatus = Image::destroy($request->id);
+            $return_data = array("success" => true, "message" => "Image Deleted Successfully");
+        } catch (\Throwable $th) {
             // dd($th);
-            $return_data = array("success"=>false, "message"=>"Image Deletion Failed",'error'=> $th);
+            $return_data = array("success" => false, "message" => "Image Deletion Failed", 'error' => $th);
         }
         return json_encode($return_data);
     }
@@ -140,10 +162,9 @@ class GalleryController extends Controller
     {
 
         if (Storage::disk('public')->exists($imageUrl)) {
-               $delete = Storage::disk('public')->delete($imageUrl);
-               return $delete;
+            $delete = Storage::disk('public')->delete($imageUrl);
+            return $delete;
         }
-    return null;
-
+        return null;
     }
 }
