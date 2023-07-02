@@ -217,8 +217,8 @@
               <div class="col s12">
                 <p>Image</p>
               </div>
-              <input type="file" name="image[]" id="image" class="dropify" multiple>
-            {{-- <input type="file" id="input-file-now" class="" data-default-file="" name="file"/> --}}
+              <!-- <input type="file" name="image[]" id="image" class="dropify" multiple> -->
+             <input type="file" name="image[]" id="image" class="" data-default-file="" name="file"/> 
             </div>
 
 
