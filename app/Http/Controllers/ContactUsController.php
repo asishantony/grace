@@ -13,14 +13,16 @@ class ContactUsController extends Controller
         $message = $request->input('message');
         $subject = $request->input('subject');
         //Send a mail to admin
-        $to = "asishantony@gmail.com";
+        try{
+        $to = "graceischool2017@gmail.com";
         $subject = "Contact Us";
         $message = "You have received a new message from the Grace International School contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email\n\nSubject: $subject\n\nMessage:\n$message";
         $headers = "From:info@graceinternationalschoolknr.com";
-        if(mail($to,$subject,$message,$headers)){
-            return redirect()->route('home', ['type' => 'success']);
-        }else{
-            return redirect()->route('home', ['type' => 'error']);
+        mail($to,$subject,$message,$headers);
+        return response()->json(['status' => 'succes', 'message' => 'Your message has been sent successfully.']);
+
+        }catch(Exception $e){
+            return response()->json(['status' => 'error', 'message' => 'Something went wrong. Please try again later.']);
         }
     }
    
