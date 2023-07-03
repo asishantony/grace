@@ -445,7 +445,7 @@
           <p>New Admission</p>
         </div>
       <div class="col-lg-12">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form action="{{route('contact-us-email')}}" method="post" role="form" class="php-email-form">
           <div class="row pt-0">
             <div class="col-md-4 form-group mb-3">
               <input type="text" name="name" class="form-control" id="name" placeholder="Name of the Student" required="">
@@ -536,7 +536,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="{{route('contact-us-email')}}" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>

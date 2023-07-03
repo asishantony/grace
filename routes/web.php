@@ -11,6 +11,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProgrammesController;
 use App\Http\Controllers\AcademicController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\TeamsController;
 
@@ -37,6 +38,7 @@ Route::get('/message/{type}', [ClientHomeController::class, 'showMessage'])->nam
 Route::get('/page/{slug}', [ClientHomeController::class, 'view']);
 Route::get('/gallery', [ClientHomeController::class, 'gallery'])->name('gallery');
 Route::get('/gallery/{album}', [ClientHomeController::class, 'galleryImages']);
+Route::post('/contact-us', [ContactUsController::class, 'index'])->name('contact-us-email');
 
 
 //Auth Middleware Group
