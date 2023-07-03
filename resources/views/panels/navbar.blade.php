@@ -142,7 +142,7 @@
           </a>
         </li>
         <li> --}}
-          <a class="grey-text text-darken-1" href="#">
+          <a class="grey-text text-darken-1" href="{{asset('/admin/logout')}}">
             <i class="material-icons">keyboard_tab</i>
             Logout
           </a>

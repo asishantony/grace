@@ -65,7 +65,7 @@
       </div>
       <div class="row">
         <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="{{ route('register') }}">Register Now!</a></p>
+          <!-- <p class="margin medium-small"><a href="{{ route('register') }}">Register Now!</a></p> -->
         </div>
         <div class="input-field col s6 m6 l6">
           <p class="margin right-align medium-small">
