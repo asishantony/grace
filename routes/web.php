@@ -120,4 +120,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('lang/{locale}', [LanguageController::class, 'swap']);
     Route::get('/admin/logout', [LogoutController::class, 'destroy'])->name('logout');
 });
-Auth::routes(['verify' => false,'register' => false]);
+Auth::routes(['verify' => false]);
