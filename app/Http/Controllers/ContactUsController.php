@@ -14,8 +14,8 @@ class ContactUsController extends Controller
         $subject = $request->input('subject');
         //Send a mail to admin
         try{
-        // $to ="graceischool2017@gmail.com";
-        $to = "asishantony@gmail.com";
+        $to ="graceischool2017@gmail.com";
+        // $to = "asishantony@gmail.com";
         $subject = "Contact Us";
         $message = "You have received a new message from the Grace International School contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email\n\nSubject: $subject\n\nMessage:\n$message";
         $headers = "From:info@graceinternationalschoolknr.com";
