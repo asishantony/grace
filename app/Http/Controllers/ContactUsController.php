@@ -20,10 +20,12 @@ class ContactUsController extends Controller
         $message = "You have received a new message from the Grace International School contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email\n\nSubject: $subject\n\nMessage:\n$message";
         $headers = "From:info@graceinternationalschoolknr.com";
         mail($to,$subject,$message,$headers);
-        return response()->json(['status' => 'succes', 'message' => 'Your message has been sent successfully.']);
+        return response('Your messge is sent', 200)
+                  ->header('Content-Type', "text/plain");
 
         }catch(Exception $e){
-            return response()->json(['status' => 'error', 'message' => 'Something went wrong. Please try again later.']);
+            return response('Your messge is not sent', 401)
+                  ->header('Content-Type', "text/plain");
         }
     }
    
