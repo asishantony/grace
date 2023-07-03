@@ -20,7 +20,7 @@ class ContactUsController extends Controller
         $message = "You have received a new message from the Grace International School contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email\n\nSubject: $subject\n\nMessage:\n$message";
         $headers = "From:info@graceinternationalschoolknr.com";
         mail($to,$subject,$message,$headers);
-        return response('Your messge is sent', 200)
+        return response('OK', 200)
                   ->header('Content-Type', "text/plain");
 
         }catch(Exception $e){
