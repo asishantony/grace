@@ -566,7 +566,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer git pull success ======= -->
+  <!-- ======= Footer  ======= -->
  @include("client.layouts.footer")
 
   <!-- <div id="preloader"></div> -->
