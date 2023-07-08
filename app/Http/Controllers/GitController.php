@@ -8,8 +8,10 @@ class GitController extends Controller
 {
     public function pull(Request $request)
     {
+        response()->json(['message' => 'Git pull request received.']);
+        exit;
         // Set Variables
-        $LOCAL_ROOT         = "/home/graccpkq/";
+        $LOCAL_ROOT         = "/home/graccpkq";
         $LOCAL_REPO_NAME    = "grace";
         $LOCAL_REPO         = "{$LOCAL_ROOT}/{$LOCAL_REPO_NAME}";
         $USERNAME           = "asish";

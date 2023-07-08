@@ -40,7 +40,7 @@ Route::get('/page/{slug}', [ClientHomeController::class, 'view']);
 Route::get('/gallery', [ClientHomeController::class, 'gallery'])->name('gallery');
 Route::get('/gallery/{album}', [ClientHomeController::class, 'galleryImages']);
 Route::post('/contact-us', [ContactUsController::class, 'index'])->name('contact-us-email');
-Route::post('/git-pull',[GitController::class,'pull'])->name('git-pull');
+// Route::post('/git-pull',[GitController::class,'pull'])->name('git-pull');
 
 
 //Auth Middleware Group
