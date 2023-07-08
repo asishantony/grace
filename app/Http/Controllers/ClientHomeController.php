@@ -15,6 +15,7 @@ use Carbon\Carbon;
 
 class ClientHomeController extends Controller
 {
+    private $school_data;
     public function __construct()
     {
         $this->school_data = SchoolDetails::get()->first()->toArray();
@@ -52,7 +53,7 @@ class ClientHomeController extends Controller
         $news = NewsEvents::orderBy('due_date', 'desc')
             ->where('featured', 1)
             ->where('status', 1)
-            ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
+            // ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
             ->get();
         $academics = Academics::select('id', 'name')->where('status', 1)->get();
         $albums = Album::with('images')

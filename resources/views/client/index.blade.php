@@ -173,7 +173,7 @@
                   <p>
                     {{$news_item->content}}
                   </p>
-                  <a href="#">Read more &raquo;</a>
+                  <!-- <a href="#">Read more &raquo;</a> -->
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -222,7 +222,7 @@
         <div class="text-center">
           <h3>The future perfect education</h3>
           <h1 class="text-white"> Grace International School</h1>
-          <a class="cta-btn" href="#">Admission</a>
+          <a class="cta-btn" href="#contact">Admission</a>
         </div>
 
       </div>
@@ -438,7 +438,7 @@
     <!-- End Team Section -->
 
     {{-- <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    <!-- <section id="pricing" class="pricing">
       <div class="container">
         <div class="section-title">
           <h2>Admission</h2>
@@ -492,7 +492,7 @@
 
         </form>
       </div>
-    </div>
+    </div> -->
     </section><!-- End Pricing Section --> --}}
 
     >
