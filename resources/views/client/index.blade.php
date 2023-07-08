@@ -227,7 +227,40 @@
 
       </div>
     </section><!-- End Cta Section -->
-
+ <!-- ======= Team Section ======= -->
+ @if(count($teams) > 0)
+  <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Administration & Staff</h2>
+          <p>Our Team</p>
+        </div>
+        <div class="row">
+          @foreach($teams as $team)
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <!-- <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="{{$team->name}}" loading="lazy"> -->
+              <img src="{{asset('storage/'.$team->image)}}" class="img-fluid" loading="lazy" alt="{{$team->name}}"/>
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>{{$team->name}}</h4>
+                  <span>{{$team->description}}</span>
+                </div>
+                <!-- <div class="social">
+                  <a href="mailto:fralexv@gmail.com"><i class="bi bi-envelope"></i></a>
+                  {{-- <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
+                </div> -->
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+  </section>
+    @endif
+    <!-- End Team Section -->
     <!-- ======= Portfolio Section ======= -->
     @if(count($albums) > 0)
     <section id="portfolio" class="portfolio">
@@ -275,42 +308,7 @@
       </div>
     </section><!-- End Portfolio Section -->
     @endif
-  <!-- ======= Team Section ======= -->
-  @if(count($teams) > 0)
-  <section id="team" class="team section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Administration & Staff</h2>
-          <p>Our Team</p>
-        </div>
-        <div class="row">
-          @foreach($teams as $team)
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <!-- <img src="{{asset('images/client/team/bishop.png')}}" class="img-fluid" alt="{{$team->name}}" loading="lazy"> -->
-              <img src="{{asset('storage/'.$team->image)}}" class="img-fluid" loading="lazy" alt="{{$team->name}}"/>
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>{{$team->name}}</h4>
-                  <span>{{$team->description}}</span>
-                </div>
-                <!-- <div class="social">
-                  <a href="mailto:fralexv@gmail.com"><i class="bi bi-envelope"></i></a>
-                  {{-- <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
-                </div> -->
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-
-      </div>
-    </section>
-    @endif
-    <!-- End Team Section -->
+ 
     <!-- ======= Team Section ======= -->
     <!-- <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
