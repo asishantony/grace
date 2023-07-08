@@ -50,7 +50,7 @@ class ClientHomeController extends Controller
     {
         $school_data = SchoolDetails::find(1);
         $data = SchoolDetails::get()->first()->toArray();
-        $news = NewsEvents::orderBy('due_date', 'desc')
+        $news = NewsEvents::orderBy('due_date', 'asc')
             ->where('featured', 1)
             ->where('status', 1)
             // ->where('due_date', '>', Carbon::now()->format('Y-m-d'))
