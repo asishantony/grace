@@ -16,7 +16,7 @@ class GitController extends Controller
         $REPO_NAME          = "grace";
         $BRANCH             = "master";
         $REMOTE_REPO        = "git@github.com:{$USERNAME}/{$REPO_NAME}.git";
-
+        shell_exec("cd {$LOCAL_REPO} && git pull origin {$BRANCH}");
 
         if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
             // Only respond to push webhooks from Github
