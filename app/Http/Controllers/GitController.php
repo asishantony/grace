@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class GitController extends Controller
 {
@@ -17,7 +18,7 @@ class GitController extends Controller
         $BRANCH             = "master";
         $REMOTE_REPO        = "git@github.com:{$USERNAME}/{$REPO_NAME}.git";
         shell_exec("cd {$LOCAL_REPO} && git pull origin {$BRANCH}");
-
+        Log::info($_SERVER);
         if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
             // Only respond to push webhooks from Github
             // compare the secret set in github and the one we set
