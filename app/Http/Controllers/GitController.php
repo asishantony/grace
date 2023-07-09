@@ -19,6 +19,7 @@ class GitController extends Controller
         $REMOTE_REPO        = "git@github.com:{$USERNAME}/{$REPO_NAME}.git";
         shell_exec("cd {$LOCAL_REPO} && git pull origin {$BRANCH}");
         Log::info($_SERVER);
+        Log::info($request->header());
         if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
             // Only respond to push webhooks from Github
             // compare the secret set in github and the one we set
