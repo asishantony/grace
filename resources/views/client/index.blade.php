@@ -566,7 +566,7 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer Value check======= -->
+  <!-- ======= Footer ======= -->
  @include("client.layouts.footer")
 
   <!-- <div id="preloader"></div> -->
