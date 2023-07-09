@@ -24,7 +24,7 @@ class GitController extends Controller
             // Only respond to push webhooks from Github
             // compare the secret set in github and the one we set
             Log::info("webhook received push event");
-            Log::info($request->header('X-Hub-Signature'), ['context' => $request->getContent()]);
+            Log::info($request->header('X-Hub-Signature'), ['context' => $request->getContent(),'secret' => config('app.github_webhook_secret')]);
             Log::info('sha1=' . hash_hmac('sha1', $request->getContent(), config('app.github_webhook_secret')), ['context' => 'webhook']);
             if ($request->header('X-Hub-Signature') == 'sha1=' . hash_hmac('sha1', $request->getContent(), config('app.github_webhook_secret'))) {
 
