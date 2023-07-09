@@ -18,14 +18,11 @@ class GitController extends Controller
         $REPO_NAME          = "grace";
         $BRANCH             = "master";
         $REMOTE_REPO        = "git@github.com:{$USERNAME}/{$REPO_NAME}.git";
-        shell_exec("cd {$LOCAL_REPO} && git pull origin {$BRANCH}");
+        // shell_exec("cd {$LOCAL_REPO} && git pull origin {$BRANCH}");
         
         if ($_SERVER['HTTP_X_GITHUB_EVENT'] == 'push') {
             // Only respond to push webhooks from Github
             // compare the secret set in github and the one we set
-            Log::info("webhook received push event");
-            Log::info($request->header('X-Hub-Signature'), ['secret' => config('app.github_webhook_secret')]);
-            Log::info('sha1=' . hash_hmac('sha1', $request->getContent(), config('app.github_webhook_secret')), ['context' => 'webhook']);
             if ($request->header('X-Hub-Signature') == 'sha1=' . hash_hmac('sha1', $request->getContent(), config('app.github_webhook_secret'))) {
 
                 if (file_exists($LOCAL_REPO)) {
