@@ -1319,6 +1319,9 @@ section {
     right: 0;
     transition: 0.2s;
 }
+.team .member .member-info img{
+    aspect-ratio: 4/4;
+}
 
 .team .member .member-info-content {
     position: absolute;

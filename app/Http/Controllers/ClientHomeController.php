@@ -101,8 +101,8 @@ class ClientHomeController extends Controller
             'chairman' => [
                 'message' => $school_data['chairman_message'],
                 'title' => "Chairman's Message",
-                'name' => "Fr. Clarence Paliath",
-                'image'   => asset('images/client/team/clarance.png')
+                'name' => "Fr. Benny Puthura",
+                'image'   => asset('images/client/team/benny.jpg')
             ],
             'patron' => [
                 'message' => $school_data["patron_message"],
@@ -113,8 +113,8 @@ class ClientHomeController extends Controller
             'principal' => [
                 'message' => $school_data['principal_message'],
                 'title'   => "Principal's Message",
-                'name'    => "Ms. Ruth del Val Sanchez",
-                'image'   => asset('images/client/team/ruth.png'),
+                'name'    => "Patricia G",
+                'image'   => asset('images/client/team/patricia.png'),
             ]
         ];
 
